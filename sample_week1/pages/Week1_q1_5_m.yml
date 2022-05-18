@@ -1,0 +1,15 @@
+title: 問題５
+page_type: "SingleTextQuestion"
+content: |
+
+  ### Q5 次の数列の和の極限を求め、空白[オ]に入る適切な値を求めよ。
+
+  $\displaystyle \lim_{n \to \infty}\sum_{k=1}^{n}\frac{(k^2 - 1)(k + 3)}{n^4} = $\frac{1}{[オ]}$$
+
+correct_answer:
+-
+  type: int
+  value: 4
+-
+  type: str
+  value: "4"

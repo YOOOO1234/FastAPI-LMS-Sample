@@ -1,0 +1,42 @@
+title: 問題１
+page_type: "MultipleTextQuestion"
+content: |
+
+    ### Q1 数列の和の公式を用いて、次の数列の和を求めよ。
+
+    (1)$\displaystyle \sum_{k=3}^{12}(3k + 1)$
+
+    (2)$\displaystyle \sum_{k=3}^{12}k^3$
+
+    (3)$\displaystyle \sum_{k=4}^{6}2^k$
+
+answer_column: |
+    (1):  [[blank_1]] (2): [[blank_2]] (3): [[blank_3]]
+correct_answers:
+-
+  blank_id: "blank_1"
+  answers:
+  -
+    type: int
+    value: 235
+  -
+    type: str
+    value: "235"
+-
+  blank_id: "blank_2"
+  answers:
+  -
+    type: int
+    value: 6075
+  -
+    type: str
+    value: "6075"
+-
+  blank_id: "blank_3"
+  answers:
+  -
+    type: int
+    value: 112
+  -
+    type: str
+    value: "112"

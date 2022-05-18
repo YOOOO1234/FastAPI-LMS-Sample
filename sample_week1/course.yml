@@ -1,0 +1,2125 @@
+blocks: 
+
+-
+  title: "week1"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    # 数列の和とその極限
+
+    ## 数列の和
+
+    ある規則にしたがって順に並べられた数の列$a_1, a_2, a_3,...,a_n$を **数列 (numerical seqence)** といい${a_n}$と表す．
+
+    数列${a_n}$内の，各々の数を **項 (term)** といい，数列のはじめめから順に第１項 (**初項，initial term**) ，第２項，第３項，...第n項 (**一般項，general term**)と呼ぶ．
+
+    $\\\\$
+
+    ( image/w1_2.PNG )
+
+    数列${a_n}$に対して，各項を初項から順に第n項まで加えた和
+
+    $\displaystyle S_n = a_1 + a_2 + a_3 + ... + a_n$を
+
+    $\displaystyle a_1 + a_2 + a_3 + ... + a_n = \sum_{k=1}^{n}a_k$
+
+    と表す．和を表す記号Σはシグマと読む．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    数列の和は，以下の線形性が成り立つ．
+
+    ### Σの性質
+
+    (1)$\sum_{k=1}^{n}(a_k \pm b_k)=\sum_{k=1}^{n}a_k \pm \sum_{k=1}^{n}b_k$ (複合同順)
+
+    (2)$\sum_{k=1}^{n}(c*a_k)=c * \sum_{k=1}^{n}a_k $ (cは定数)
+    
+    $\\\\$
+
+    $\\\\$
+
+    数列の和の公式は以下の通りである．
+
+    ### 数列の和の公式
+    
+    (1)$\sum_{k=1}^{n}c=nc$ (cは定数)
+
+    (2)$\sum_{k=1}^{n}k=\frac{1}{2} n(n+1)$
+
+    (3)$\sum_{k=1}^{n}k^2=\frac{1}{6} n(n+1)(2n+1)$
+
+    (4)$\sum_{k=1}^{n}k^3=\{ \frac{1}{2} n(n+1) \}^2$
+
+    (5)$\sum_{k=1}^{n}r^k-1 = \frac{1-r^n}{1-r}$ ($r \neq 1$)
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題1.1** 　数列の和の公式を用いて，次の数列の和を求めよ．
+
+    (1)$\displaystyle \sum_{k=3}^{12}(2k + 1)^2$　　　　(2)$\displaystyle \sum_{k=4}^{6}3^{2k-7}$
+
+    $\\\\$
+    
+    解説：
+
+    (1)$l = k - 2$とおくことで，初項からの和に書き足すことができる．
+
+    $\displaystyle \begin{align} \sum_{k=3}^{12}(2k + 1)^2 &= \sum_{l=1}^{10} \lbrace 2(l+2) + 1 \rbrace^2 \\\\ &= \sum_{l=1}^{10}(2l + 5)^2 \\\\ &= \sum_{l=1}^{10}(4l^2 + 20l + 25) \end{align}$
+
+    後は，Σの線形性と数列の和の公式を用いればよい．
+
+    $\displaystyle \begin{align} (与式) &= 4 \times \sum_{l=1}^{10}l^2 + 20 \times \sum_{l=1}^{10}l + \sum_{l=1}^{10}25 \\\\ &= 4 \times \frac{1}{6} \cdot 10 \cdot (10 + 1) \cdot (2 \cdot 10 + 1) + 20 \times \frac{1}{2} \cdot 10 \cdot (10+1) + 25 \cdot 10 \\\\ &= 2890 \end{align}$
+
+    (2)$l = k - 3$とおくことで，初項からの和に書き直すことができる．
+
+    $\displaystyle \sum_{k=4}^{6}3^{2k-7} = \sum_{l=1}^{3}3^{2(l+3)-7} = \sum_{l=1}^{3}3^{2l-1}$
+
+    次に，Σの線形性と数列の和の公式を用いるが，各等号における式変形を，十分に理解すること．
+
+    $\displaystyle \begin{align} (与式) &= \sum_{l=1}^{3}3^{2(l-1)+1} \\\\ &= 3 \times \sum_{l=1}^{3}3^{2(l-1)} \\\\ &= 3 \times \sum_{l=1}^{3}9^{l-1} \\\\ &= 3 \times \frac{1-9^3}{1-9} \\\\ &= 3 \times \frac{-728}{-8} \\\\ &= 3 \times 91 \\\\ &= 273 \end{align}$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 数列の和の極限
+
+    数列${a_n}$は関数と同様に，nが大きくなるにつれて極限$\lim_{n \to \infty}a_n$を考えることができる．
+
+    数列の和$S_n$についても数列${S_n}$と考えることで，同様に極限を考えることができる．
+
+    数列の和の公式(1)～(4)の和の極限は発散する．
+
+    数列の和の公式(5)は，$|r| < 1$であれば，$\lim_{n \to \infty}r^n = 0$であり収束する．
+
+    $\displaystyle \lim_{n \to \infty}\sum_{k=1}^{n}r^k-1 = \lim_{n \to \infty}\frac{1-r^n}{1-r} = \frac{1}{1-r}$ ($|r| < 1$)
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題1.2** 　次の数列の和の極限を求めよ．
+
+    (1)$\displaystyle lim_{n \to \infty}\sum_{k=1}^{n}\frac{2k + 3}{n^2}$　　　　(2)\displaysytle $lim_{n \to \infty}\sum_{k=1}^{n}\frac{3}{4^k}$
+
+    $\\\\$
+
+    解説：
+
+    (1)
+
+    $\displaystyle \begin{align} \lim_{n \to \infty}\sum_{k=1}^{n}\frac{2k + 3}{n^2} &= \lim_{n \to \infty}\frac{1}{n^2}(2 \times \sum_{k=1}^{n}k + \sum_{k=1}^{n}3) \\\\ &= \lim_{n \to \infty}\frac{1}{n^2} \lbrace 2 \times \frac{1}{2}n(n + 1) + 3n \rbrace \\\\ &= \lim_{n \to \infty}(1 + \frac{4}{n}) \\\\ &= 1 \end{align}$
+
+    (2)$\displaystyle \lim_{n \to \infty}\sum_{k=1}^{n}\frac{3}{4^k} = \lim_{n \to \infty}\frac{3}{4} \times \frac{1 - (\frac{1}{4})^n}{1 - \frac{1}{4}} = \lim_{n \to \infty} \lbrace 1 - (\frac{1}{4})^n \rbrace = 1$
+
+    $\\\\$
+
+    $\\\\$
+
+    学習を終えたら問題に取り組もう！ [問題はこちら](flow/sample_flow)
+
+    学習を終えたら問題に取り組もう！ [問題はこちら](flow/textbook1)
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week2"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    # 定積分と不定積分
+
+    ## リーマン和
+
+    数列の和の極限を用いると，$a \leq x \leq b$で定義された連続関数$f(x)$が描く曲線$y=f(x)$とx軸で囲まれた面積を次のように計算することができる．
+
+    $\\\\$
+
+    区間$[a,b]$をn等分した小区間$\Delta x = \frac{b-a}{n}$を考える．
+
+    一番左の小区間は$[a,a+\Delta x]$であり，順に$[a+\Delta x,a+2\Delta x]$,$[a+2\Delta x,a+3\Delta x]$,...$[a+(n-1)\Delta x,a+n\Delta x]$である．つまり$a+n\Delta x=b$となる．
+
+    さらに，$x_i=a+i\Delta x$ (i=0,1,2,...,n)とおき，i番目の小区間$[x_i-1 ,x_i]$に含まれる任意の点を$c_i$とする．
+
+    $a \leq x \leq b$のとき$f(x) \geq 0$とすると，
+
+    $\displaystyle S_n = \sum_{i=1}^{n}f(c_i)\Delta x$
+
+    上記の式は，n個の長方形の面積の和である．これを **リーマン和 (Riemann sum)** と呼ぶ．
+
+    $\\\\$
+
+    $\\\\$
+
+    先程の式では，長方形の高さを$f(c_i)$で与えたが，i番目の小区間$[x_i-1 ,x_i]$内の最大値や最小値で定義する場合は，それぞれ上リーマン和 (upper Riemann sum)，下リーマン和 (lower Riemann sum)と呼ばれる．
+
+    一方で，小区間[x_i-1 ,x_i]内の左端での関数の値$f(x_i-1)$や，右端での値$f(x_i)$，あるいは区間の中点$\frac{x_i-1 + x_i}{2}$での値を用いる場合は，それぞれ左リーマン和 (left Riemann sum)，右リーマン和 (right Riemann sum)，中点リーマン和 (midpoint Riemann sum)と呼ばれる．
+
+    $\\\\$
+
+    区間の分割の個数nを多くしていくと長方形の高さに差はなくなり，$n \to \infty$の極限を考えると，すべてのリーマン和は同じ値となり，曲線$y=f(x)$とx軸とで囲まれた部分の面積に一致する．
+
+    よって，連続関数$f(x)$が描く曲線$y=f(x)$とx軸，および2直線x=a，x=bとで囲まれた部分の面積を，先程の式であるリーマン和の極限
+
+    $\displaystyle \lim_{n \to \infty}S_n = lim_{n \to \infty}\sum_{i=1}^{n}f(c_i)\Delta x$
+
+    で表し，これを **リーマン積分 (Riemann integral)** と呼ぶ．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題1.3** 　次の曲線$y=f(x)$とx軸と直線x=0, x=1とで囲まれた部分の面積を，右リーマン和を用いて求めよ．
+
+    (1)$f(x)=x+1$　　　　　(2)$f(x)=3x^2$
+
+    $\\\\$
+
+    解説：
+    
+    直線x=0, x=1に囲まれているので区間は[0,1]，$\Delta x = \frac{1-0}{n} = \frac{1}{n}$，
+
+    i番目の小区間$[x_i-1 ,x_i]$の右リーマン和を考えるので，$[x_i-1 ,x_i]$に含まれれる任意の点$c_i$は
+
+    $\displaystyle c_i = x_i = a + i\Delta x = 0 + i * \frac{1}{n} = \frac{i}{n}$
+
+    である．これらの値を用いて，リーマン積分を考える．
+
+    $\\\\$
+
+    (1)$\displaystyle \lim_{n \to\infty}\sum_{i=1}^{n}f(c_i)\Delta x = \lim_{n \to\infty}\sum_{i=1}^{n}f(\frac{i}{n})\frac{1}{n} = \lim_{n \to\infty}\sum_{i=1}^{n}(\frac{i}{n^2}+\frac{1}{n}) = \lim_{n \to\infty}{\frac{1}{n^2}*\frac{1}{2}n(n+1)+1} = \frac{3}{2}$
+
+    (2)$\displaystyle \lim_{n \to\infty}\sum_{i=1}^{n}f(c_i)\Delta x = \lim_{n \to\infty}\sum_{i=1}^{n}f(\frac{i}{n})\frac{1}{n} = \lim_{n \to\infty}\sum_{i=1}^{n}\frac{3i^2}{n^3} = \lim_{n \to\infty}{\frac{3}{n^3}*\frac{1}{6}n(n+1)(2n+1)} = 1$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 定積分
+
+    区間$a \leq x \leq b$で定義された連続関数$f(x)$に対して，曲線$y=f(x)とx軸と2直線x=a, x=bとで囲まれた部分の面積を，
+
+    「関数$f(x)$のaからbまでの **定積分 (definite integral)** 」と呼び，$\int_{a}^{b}f(x)dx$という記号で表す．
+
+    これは，リーマン和の分割の個数nを無限に多くした極限であるリーマン積分そのものである．
+
+    $\displaystyle \int_{a}^{b}f(x)dx = \lim_{n \to \infty}\sum_{i=1}^{n}f(c_i)\Delta x $
+
+    また，積分する関数$f(x)$を **被積分関数 (integrand)** といい，関数$f(x)$について積分（面積）を考えるxの区間[a,b]を **積分区間 (interval of integration)** と呼ぶ．
+
+    このaを積分の下端(lower end)，bを上端(upper end)という．
+
+    $\\\\$
+
+    $\\\\$
+
+    注意点として，$a \leq x \leq b$で$f(x) < 0$となる場合には，積分の値は不の値をとるが，その大きさは曲線$y=f(x)$とで囲まれた部分の面積に等しいため，
+
+    定積分は曲線$y=f(x)$とx軸と2直線x=a, x=bとで囲まれた部分の符号付き面積と考えることができる．
+
+    さらに，積分区間を定めるaとbの大小関係も$a < b$に限る必要はなく，$a \geq b$の場合も許容することができる．
+
+    よって，以下の積分区間に関する関係も定積分の定義に含める．
+
+    $\displaystyle \int_{a}^{a}f(x)dx = 0$
+
+    $\displaystyle \int_{b}^{a}f(x)dx = -\int_{a}{b}f(x)dx$
+
+    $\\\\$
+
+    $\\\\$
+
+    これら３つの定義から，次の性質が成り立つ．
+
+    ### 定積分の性質
+
+    (1)$\int_{a}^{b}c \cdot f(x)dx = c \cdot \int_{a}^{b}f(x)dx$ (cは定数)
+
+    (2)$\int_{a}^{b}{f(x)\pm g(x)}dx = \int_{a}^{b}f(x)dx \pm \int_{a}^{b}g(x)dx$ (複合同順)
+
+    (3)$\int_{a}^{b}f(x)dx = \int_{a}^{c}f(x)dx + \int_{c}^{b}f(x)dx$
+
+    (4)区間[a,b]で$f(x) \geq 0$ならば，$\int_{a}^{b}f(x)dx \geq 0$
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week3"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    ## 不定積分
+
+    関数$f(x)$に対して，
+
+    $\displaystyle \frac{d}{dx}F(x) = f(x)$
+
+    の関係が成り立つ関数$F(x)$を関数f(x)の **原始関数 (primitive function; antiderivative)** と呼ぶ．
+
+    ただし，定数は微分するとゼロとなったので，任意の定数分だけ原始関数は存在する．つまり，原始関数は無限に存在する．
+
+    $\\\\$
+
+    先程の式を既知の関数$f(x)$について表現するために，定積分と同様の記号を用いて，
+
+    $\displaystyle \int f(x)dx = F(x)+C$ (C：任意定数)
+
+    のように表し，これを関数f(x)の **不定積分 (indefinite integral)** と呼び，$C$を **積分定数 (constant of integration)** と呼ぶ．
+
+    原始関数$F(x)$を求めることを，「xについて積分する(integration; antidifferentiation)」という．
+
+    $\\\\$
+
+    $\\\\$
+
+    導関数の線形性から，以下の不定積分の線形性が成り立つ．
+
+    ### 不定積分の線形性
+
+    (1)$\int c \cdot f(x)dx = c \cdot \int f(x)dx $ (cは定数)
+
+    (2)$\int {f(x) \pm g(x)}dx = \int f(x)dx \pm \int g(x)dx $ (複合同順)
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 微積分学の基本定理
+
+    区間[a,b]で定義された連続関数$f(x)$の任意の原始関数を$F(x)$とするとき，
+
+    $\displaystyle \int_{a}^{b}f(x)dx = F(b)-F(a)$
+
+    が成り立つ．
+
+    $\\\\$
+
+    つまり，定積分の計算を定義通りに行わずに，$f(x)$の原始関数$F(x)$を求め，これにx=bを代入した値から，x=aを代入した値を引くことで，定積分の計算を実行することができる．
+
+    計算過程を記述するために，記号$[F(x)]_{a}^{b}$を用い，$F(b)-F(a)$を表す．
+
+    $\\\\$
+
+    ### 例：
+    
+    次のように定積分は計算される．
+
+    $\displaystyle \int_{2}^{4}(2x+1)dx = [x^2 + x]_{2}^{4} = (4^2 + 4) - (2^2 + 2) = 20 - 6 = 14$
+
+    $\displaystyle \int_{1}^{3}3x^2 dx = [x^3]_{1}^{3} = 3^3 - 1^3 = 27 - 1 = 26$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    # いろいろな関数の不定積分
+
+    ## べき関数の不定積分
+
+    べき関数$x^\alpha$の導関数の公式は$(x^\alpha)' = \alpha x^\alpha-1$であったので，
+
+    $\displaystyle \int x^\alpha dx = \frac{1}{\alpha + 1} x^\alpha-1 + C$ (Cは積分定数)
+
+    である．この公式には$\alpha = 0$の場合も含まれる．すなわち，$\int x^0 dx = \int 1dx = x + C$である．
+
+    一方で，$\alpha \neq -1$でなければならないことに注意する必要がある．
+
+    $\alpha = -1$のときは対数関数の導関数の公式$(ln|x|)'=\frac{1}{x}$から，$\alpha = -1$のときのべき関数の原始関数は対数関数となり，
+
+    $\displaystyle \int \frac{1}{x}dx = ln|x| + C$ (Cは積分定数)
+
+    である．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題1.5** 　次の不定積分を求めよ．
+
+    (1)$\displaystyle \int \sqrt{x}dx$　　　　(2)$\displaystyle \int (3x^2 - \frac{1}{x})dx$
+
+    $\\\\$
+
+    解説：
+
+    (1)$\displaystyle \int \sqrt{x}dx = \int x^{\frac{1}{2}}dx = \frac{1}{\frac{1}{2} + 1}x^{ \frac{1}{2} + 1} + C = \frac{2}{3}x \sqrt{x} + C$ (Cは積分定数)
+
+    (2)
+    
+    $\displaystyle \begin{align} \int (3x^2 - \frac{1}{x})dx &= \int (3x^2 - x^{-1})dx \\\\ &= 3 \int x^2 dx - \int x^{-1}dx \\\\ &= 3 \times \frac{1}{3}x^3 - \ln|x| + C \\\\ &= x^3 - \ln|x| + C \end{align}$
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week4"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    ## 指数関数の不定積分
+
+    指数関数の導関数の公式は，
+
+    $\displaystyle (e^x)' = e^x , (a^x)' = a^x \ln a $
+
+    $(a > 0, a \neq 1)$であったので，Cを積分定数として，
+
+    $\displaystyle \int e^x dx = e^x + C , \int a^x dx = \frac{a^x}{\ln a}+C$
+
+    である．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題1.6** 　次の不定積分を求めよ．
+
+    (1)$\int e^{2x+1}dx$　　　　(2)$\int 2^x dx$
+
+    $\\\\$
+
+    解説：以下，Cは積分定数とする．
+
+    (1)$\displaystyle \int e^{2x+1}dx = e \times \int (e^2)^x dx = \frac{e \times e(e^2)^x}{ \ln (e^2)} + C = \frac{1}{2}e^{2x+1} + C$
+
+    (2)$\displaystyle \int 2^x dx = \frac{2^x}{ \ln 2} + C$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 三角関数の不定積分
+
+    三角関数の導関数の公式は，
+
+    $\displaystyle (\sin x)' = \cos x$,　　　$\displaystyle (\cos x)' = -\sin x $
+
+    $\displaystyle (\tan x)' = \sec^2 x$,　　　$\displaystyle (\cot x)' = -\csc^2 x $
+
+    $\displaystyle (\sec x)' = \sec x \tan x$,　　　$\displaystyle (\csc x)' = -\csc x \cot x $
+
+    であったので，Cを積分定数として，
+
+    $\displaystyle \int \cos x dx = \sin x + C, \int \sin x dx = -\cos x + C $
+
+    $\displaystyle \int \sec^2 x dx = \tan x + C, \int \csc^2 x dx = -\cot x + C $
+
+    $\displaystyle \int \sec x \tan x dx = \sec x + C, \int \csc x \cot x dx = -\csc x + C $
+
+    である．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題1.7** 　次の不定積分を求めよ．
+
+    (1)$\displaystyle \int \frac{\sin^3 x - 1}{\sin^2 x}dx$　　　　$\displaystyle \int \frac{1 + \sin x}{\cos^2 x}dx$
+
+    $\\\\$
+
+    解説：以下，Cは積分定数とする．
+
+    (1)$\displaystyle \int \frac{\sin^3 x - 1}{\sin^2 x}dx = \int \sin xdx - \int \csc^2 xdx = - \cos x + \cot x + C$
+
+    (2)$\displaystyle \int \frac{1 + \sin x}{\cos^2 x}dx = \int \sec^2 xdx + \int \sec x \tan x dx = \tan x + \sec x + C$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 分数式の不定積分
+
+    逆三角関数の導関数の公式は，
+
+    $\displaystyle (\sin^-1 x)' = \frac{1}{\sqrt{1-x^2}},   (\tan^-1 x)' = \frac{1}{1+x^2},   (sec^-1 x)' = \frac{1}{|x|\sqrt{x^2 - 1}}$
+
+    であったので，Cを積分定数として，以下の積分公式が得られる．
+
+    $\displaystyle \int \frac{1}{\sqrt{1 - x^2}}dx = \sin^{-1} x + C $
+
+    $\displaystyle \int \frac{1}{1 + x^2}dx = \tan^{-1} x + C $
+
+    $\displaystyle \int \frac{1}{x\sqrt{x^2 - 1}}dx = \sec^{-1} |x| + C $
+
+    $\\\\$
+
+    また，合成関数の微分法を用いることで，公式を以下のように拡張することができる．
+
+    $\displaystyle \int \frac{1}{\sqrt{a^2 - x^2}}dx = sin^{-1} \frac{x}{a} + C $ (a>0は定数)
+
+    $\displaystyle \int \frac{1}{x^2 + a^2}dx = \frac{1}{a}\tan^{-1} \frac{x}{a} + C $ (a>0は定数)
+
+    $\displaystyle \int \frac{1}{\sqrt{x^2 + A}}dx = \ln|x + \sqrt{x^2 + A}| + C $ ($A \neq 0 は定数$)
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題1.8** 　次の不定積分を求めよ．
+
+    (1)$\displaystyle \int \frac{1}{\sqrt{4-4x^2}}dx$　　　　(2)$\displaystyle \int \frac{1 + x + x^3}{1 + x^2}dx$
+
+    $\\\\$
+
+    解説：以下，Cは積分定数とする．
+
+    (1)$\displaystyle \int \frac{1}{\sqrt{4-4x^2}}dx = \int \frac{1}{2 \sqrt{1-x^2}}dx = \frac{1}{2} \sin^{-1}x + C$
+
+    (2)$\displaystyle \int \frac{1 + x + x^3}{1 + x^2}dx = \int \frac{1}{1 + x^2}dx + \int xdx = \tan^{-1} x + \frac{1}{2}x^2 + C$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    有理関数の不定積分において，$g(x)$，$h(x)$を多項式関数として，被積分関数$f(x)$が
+
+    $\displaystyle f(x) = \frac{h(x)}{g(x)} $
+
+    のように表される場合，最初に分子の次数が分母の次数よりも小さくなるまで割り算を実行する．
+
+    $\displaystyle f(x) = q(x) + \frac{r(x)}{g(x)} $
+
+    その後，分母の因数分解の形に応じ，部分分数分解をしてから各項を積分する．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題1.9** 　次の不定積分を求めよ．
+
+    $\displaystyle \int \frac{x^4 + x^3 + 3x^2 + 2}{x^3 + x}dx$
+
+    解説：
+
+    Cは積分定数とする．
+
+    $\displaystyle \int \frac{x^4 + x^3 +3x^2 + 2}{x^3 + x}dx = \int (x + 1)dx + \int \frac{2x^2 - x + 2}{x(x^2 + 1)}dx$
+
+    $\displaystyle = \int (x + 1)dx + \int \frac{2}{x}dx - \int \frac{1}{x^2 + 1}dx = \frac{1}{2}x^2 + x + 2\ln|x| - \tan^{-1} x + C $
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week5"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    # 部分積分法
+
+    ## 不定積分の部分積分法
+
+    導関数の性質の「積の微分法」から，積分に関する公式が導かれる．積の微分法は，
+
+    $\displaystyle (f(x)g(x))' = f'(x)g(x) + f(x)g'(x)$
+
+    であった．この式の両辺を積分すると，
+
+    $\displaystyle f(x)g(x) = \int f'(x)g(x)dx + \int f(x)g'(x)dx$
+
+    となる．これの両辺を移項したものを **部分積分法 (integration by parts)** の公式という．
+
+    $\int f(x)g'(x)dx = f(x)g(x) - \int f'(x)g(x)dx$
+
+    $\\\\$
+
+    ### 例：
+    
+    積分 $\int x\cos x dx$を計算する時，$f(x)=x$，$g'(x)=\cos x$とみると，
+
+    $f(x)=1$，$g(x)=\int \cos x dx = \sin x$であるから，部分積分法の公式から，
+
+    $\displaystyle \int x\cos x dx = x\sin x -\int 1 \times \sin x dx = x\sin x + \cos x + C$
+
+    と計算できる(Cは積分定数)．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題1.10** 　部分積分法を用いて，次の不定積分を求めよ．
+
+    (1)$\displaystyle \int xe^{3x}dx$　　　　(2)$\displaystyle \int x \ln x dx$
+
+    $\\\\$
+
+    解説：以下，Cは積分定数とする．
+
+    (1)$\displaystyle \int xe^{3x}dx = x \cdot \frac{1}{3}e^{3x} - \int 1 \cdot \frac{1}{3}e^{3x}dx = \frac{1}{9}(3x - 1)e^{3x} + C$
+
+    (2)$\displaystyle \int x \ln x dx = \frac{1}{2}x^2 \cdot \ln x - \int \frac{1}{2}x^2 \cdot \frac{1}{x}dx = \frac{1}{2}x^2 \ln x - \frac{1}{4}x^2 + C$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 定積分の部分積分法
+
+    先程の不定積分の部分積分法から，
+
+    $\displaystyle \int_{a}^{b}f(x)g'(x)dx = \biggl\lbrack f(x)g(x) - \int f'(x)g(x)dx \biggr\rbrack_{a}^{b} = \biggl\lbrack f(x)g(x) \biggr\rbrack_{a}^{b} - \int_{a}^{b}f'(x)g(x)dx $
+    
+    となるので，定積分の部分積分法の公式が得られる．
+
+    $\displaystyle \int_{a}^{b}f(x)g'(x)dx = \biggl\lbrack f(x)g(x) \biggr\rbrack_{a}^{b} - \int_{a}^{b}f'(x)g(x)dx $
+
+    $\\\\$
+
+    ### 例：
+
+    $\displaystyle \int_{0}^{\pi}x\cos xdx = \bigl\lbrack x\sin x \bigr\rbrack_{0}^{\pi} - \int_{0}^{\pi}\sin xdx = \pi \sin \pi - 0 - \bigl\lbrack -\cos x \bigr\rbrack_{0}^{\pi} = \cos \pi - \cos 0 = -2$
+
+    $\\\\$
+
+    $\\\\$
+
+    また，部分積分法を繰り返す回数が多い場合には，与式を$I_n$とおいて以下のように計算するとよい．
+
+    **例題1.12** 　部分積分法を用いて，n=3の場合に次の積分を求めよ．
+
+    (1)$\displaystyle \int (\ln x)^n dx$　　　　(2)$\displaystyle \int_{0}^{\frac{\pi}{2}}\cos^n x dx$
+
+    $\\\\$
+
+    解説：以下，与式を$I_n$とおく．
+
+    (1)$I_n = x \cdot (\ln x)^n - \int x \cdot \frac{n}{x}(\ln x)^{n-1} dx = x(\ln x)^n - nI_{n-1}$
+
+    　と$I_0 = x$より，求める不定積分は，
+
+    $\displaystyle \begin{align} I_3 &= x(\ln x)^3 - 3I_2 \\\\ &= x(\ln x)^3 - 3{x(\ln x)^2 - 2I_1} \\\\ &= x(\ln x)^3 - 3{x(\ln x)^2 - 2(x\ln x - I_0)} \\\\ &= x(\ln x)^3 - 3x(\ln x)^2 + 6x\ln x - 6x + C \end{align}$
+
+    $\\\\$
+
+    (2)
+    
+    $\displaystyle \begin{align} I_n &= \int_{0}^{\frac{\pi}{2}}\cos^{n-1}x \cdot \cos x dx \\\\ &= \bigl\lbrack \cos^{n-1}x * \sin x \bigr\rbrack_{0}^{\frac{\pi}{2}} - \int_{0}^{\frac{\pi}{2}}(n-1) \cos^{n-2}x (- \sin x) * \sin x dx \\\\ &= (n-1) \int_{0}{\frac{\pi}{2}}\cos^{n-2}x * (1 - \cos^2 x)dx \\\\ &= (n-1)(I_{n-2} - I_n) \end{align}$
+
+    より，$I_n = \frac{n-1}{n}I_{n-2}$となり$I_1 = 1$と合わせて，$I_3 = \frac{2}{3}I_1 = \frac{2}{3}$である．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## ワリスの公式
+
+    先程の例題1.12(2)の定積分は，ワリスの公式として知られている．
+
+    ### ワリスの公式(Wallis formula)
+
+    $\displaystyle \cdot \int_{0}^{\frac{\pi}{2}}\sin^n x dx = \begin{cases} \frac{n-1}{n} * \frac{n-3}{n-2} * \frac{n-5}{n-4} * \cdots * \frac{2}{3} * 1 (n:奇数) \\\\ \frac{n-1}{n} * \frac{n-3}{n-2} * \frac{n-5}{n-4} * \cdots * \frac{1}{2} * \frac{\pi}{2} (n:偶数) \end{cases} $
+
+    $\displaystyle \cdot \int_{0}^{\frac{\pi}{2}}\cos^n x dx = \begin{cases} \frac{n-1}{n} * \frac{n-3}{n-2} * \frac{n-5}{n-4} * \cdots * \frac{2}{3} * 1 (n:奇数) \\\\ \frac{n-1}{n} * \frac{n-3}{n-2} * \frac{n-5}{n-4} * \cdots * \frac{1}{2} * \frac{\pi}{2} (n:偶数) \end{cases} $
+
+    $\\\\$
+
+    **例題1.13** 　次の定積分の値を求めよ．
+
+    (1)$\int_{0}^{\frac{\pi}{2}}\sin^4 x dx$　　　　(2)$\int_{0}^{\frac{\pi}{2}}\sin^3 x \cos^2 x dx$
+
+    $\\\\$
+
+    解説：
+
+    (1)$\displaystyle \int_{0}^{\frac{\pi}{2}}\sin^4 x dx = \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2} = \frac{3\pi}{16}$
+
+    (2)
+    
+    $\displaystyle \begin{align} (与式) &= \int_{0}^{\frac{\pi}{2}}\sin^3 x(1 - sin^2 x) dx \\\\ &= \int_{0}^{\frac{\pi}{2}}\sin^3 x dx - \int_{0}^{\frac{\pi}{2}}sin^5 x dx \\\\ &= \frac{2}{3} \cdot 1 - \frac{4}{5} \cdot \frac{2}{3} \cdot 1 \\\\ &= (1 - \frac{4}{5}) \cdot \frac{2}{3} \cdot 1 \\\\ &= \frac{2}{15} \end{align}$
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week6"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    # 置換積分法
+
+    ## 不定積分の置換積分法
+
+    導関数を求める手法の1つとして，以下のような「合成関数の微分法」があった．
+
+    $\displaystyle (f \circ g)(x)' = f'(g(x)) \cdot g'(x)$
+
+    この式について，両辺をxについて積分すると，
+
+    $\displaystyle (f \circ g)(x) = \int f'(g(x)) \cdot g'(x)dx $
+
+    である．ここで，$u=g(x)$とおくと左辺は$f(u)$とも書くことができる．従って，以下のように表すことができる．
+
+    $\displaystyle f(u) = \int f'(g(x)) \cdot g'(x)dx$
+
+    左辺と右辺を入れ替え，被積分関数を$f(g(x)) = f(u)$，その原始関数を$F(u)$と書き直したものを， **置換積分法(integration by substitution)** の公式という．
+
+    $\displaystyle f(g(x)) \cdot g'(x)dx = \int f(u) du = F(u) + C = F(g(x)) + C$
+
+    ただし，Cは積分定数である．
+
+    $\\\\$
+
+    **例題1.14** 　次の不定積分を求めよ．
+
+    (1)$\displaystyle \int 3x^2 (x^3 - 1)^4 dx$　　　　(2)$\displaystyle \int \frac{1}{2x^2 + 2x + 1}dx$
+
+    $\\\\$
+
+    解説：
+
+    (1)$\displaystyle \int 3x^2 (x^3 - 1)^4 dx = \int (x^3 - 1)' \cdot (x^3 - 1)^4 dx = \frac{1}{5}(x^3 - 1)^5 + C$
+
+    (2)$\displaystyle (与式) = \int \frac{2}{4x^2 + 4x + 2}dx = \int \frac{(2x + 1)'}{(2x + 1)^2 + 1}dx = \tan^{-1}(2x + 1) + C$
+
+    $\\\\$
+
+    $\\\\$
+
+    例題1.14(2)において，$2x + 1 = \tan \theta$ と置き換えると，両辺を$\theta$で微分すると$2 \frac{dx}{d\theta} = \sec^2 \theta$であるから，
+
+    形式的に$dx = \frac{1}{2}\sec^2 \theta \cdot d\theta$と考えて，以下のようにも置換積分を実行することができる．
+
+    $\displaystyle \begin{align} \int \frac{1}{2x^2 + 2x + 1}dx &= \int \frac{2}{(2x^2 + 1)^2 + 1}dx \\\\ &= \int \frac{2}{\tan^2 \theta + 1} \cdot \frac{\sec^2 \theta d\theta}{2} \\\\ &= \int 1 d\theta \\\\ &= \theta \\\\ &= \tan^{-1}(2x + 1) + C \end{align}$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 定積分の置換積分法
+
+    定積分の場合には，置き換えた文字を元に戻して積分区間の上端の値や下端の値を代入するのではなく，置換積分を考えるときに，積分区間自体も置き換えた文字に関する区間にしておく．
+
+    すなわち，$u = g(x)$とおくとき，$\alpha = g(a)$と$\beta = g(b)$の値を求めて，
+
+    $\displaystyle \int_{a}^{b}f(g(x)) \cdot g'(x)dx = \int_{\alpha}^{\beta}f(u)du = \bigl\lbrack F(u) \bigr\rbrack_{\alpha}^{\beta} = F(\beta) - F(\alpha)$
+
+    のように積分する．
+
+    $\\\\$
+
+    **例題1.16** 　次の定積分の値を求めよ．
+
+    (1)$\displaystyle \int_{0}^{2}\frac{1}{\sqrt{4-x^2}}dx$　　　　(2)$\displaystyle \int_{2}^{3}x^{2}\sqrt{x-2}dx$
+
+    $\\\\$
+
+    解説：
+    
+    (1)$x = 2 \sin \theta$と置き換えると，$\frac{dx}{d\theta} = 2 \cos \theta$ であり，$x = 0$のとき$\theta = 0$，$x = 2$のとき$\theta = \frac{\pi}{2}$であるから，
+
+    $\displaystyle (与式) = \int_{0}^{\frac{\pi}{2}}\frac{1}{\sqrt{4 - 4 \sin^2 \theta}} \cdot 2 \cos \theta d \theta = \int_{0}{\frac{\pi}{2}}1 d \theta = \Bigl\lbrack \theta \Bigr\rbrack_{0}^{\frac{\pi}{2}} = \frac{\pi}{2}$
+
+    (2)$u = x - 2$と置き換えると，$\frac{du}{dx} = 1$であり，$x = 2$のとき$u = 0$で，$x = 3$のとき$u = 1$であるから，
+
+    $\displaystyle \begin{align} (与式) &= \int_{0}^{1}(u + 2)^2 \sqrt{u}du \\\\ &= \int_{0}^{1}(u^{\frac{5}{2}} + 4u^{\frac{3}{2}} + 4u^{\frac{1}{2}})du \\\\ &= \Bigl\lbrack \frac{2}{7}u^{\frac{7}{2}} + \frac{8}{5}u^{\frac{5}{2}} + \frac{8}{3}u^{\frac{3}{2}} \Bigr\rbrack_{0}^{1} \\\\ &= \frac{2}{7} + \frac{8}{5} + \frac{8}{3} \\\\ &= \frac{478}{105} \end{align}$
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week7"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    ## 微分方程式とは
+
+    一般に，独立変数(independent variable)と未知変数(unknown function)とその導関数(derivative function)を含む関係式を **微分方程式(differential equation)** といい，未知関数を独立変数の式として見出すことを「微分方程式を解く」といい，その式を微分方程式の解という．
+
+    また，微分方程式に含まれる未知関数の導関数のうち，最も次数の高い導関数が第n次導関数(n-th derivative)であるとき，この微分方程式を **n階微分方程式(n-th order differential eqation)** といい，nのことを **階数(order)** と呼ぶ．
+
+    1階微分方程式の例：$\displaystyle \frac{dy}{dx} = ry(1 - \frac{y}{k})　(ロジスティック方程式)；解　y = \frac{y_0 ke^{rx}}{k - y_0 + y_0 e^{rx}}$
+
+    2階微分方程式の例：$m\frac{d^2 y}{d^2 x} = -ky　(ばねの振動)；解　y = c_1 \cos \sqrt{\frac{k}{m}}x + c_2 \sqrt{\frac{k}{m}}x$
+
+    $\\\\$
+
+    この内容では，微分方程式に含まれる導関数が **第1次導関数(first order differential equation)** までの1階微分方程式について学習する．
+
+    $\displaystyle \frac{dy}{dx} = f(x, y) $
+
+    ただし，2変数x，yの関数$f(x,y)$は，xとyで表現される式であるが，y自身もxの関数であることに注意する必要がある．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    # 1階微分方程式
+
+    ## 直接積分形の微分方程式
+
+    先程の1階微分方程式のうち，右辺の$f(x,y)$がxだけの関数$f(x)$の場合は，
+
+    $\displaystyle \frac{dy}{dx} = f(x)$
+
+    と表される．この場合，xの関数yの第1次導関数がxの式$f(x)$で表現されているので，両辺をxで積分すれば，
+
+    $\displaystyle y = \int f(x)dx + C$ (Cは任意定数)
+
+    となる．ただし，$\int f(x)dx$は$f(x)$の原始関数の１つとし，両辺に生じる積分定数をまとめて，任意定数として右辺に記した．
+
+    実際の計算では，すべての積分の計算が終わり原始関数を記す段階で，任意定数Cを示すと良い．
+
+    1階微分方程式の場合，このように1つの任意定数を含む解を **一般解(general solution)** という．
+
+    $\\\\$
+
+    ### 例：
+    
+    1階微分方程式$\frac{dy}{dx} = 3x^2 - 3$の一般解は，
+
+    $\displaystyle y = \int (3x^2 - 3)dx = x^3 - 3x + C$
+
+    となる．ただし，Cは任意定数．
+
+    $\\\\$
+
+    $\\\\$
+
+    微分方程式の一般解をグラフで表そうとすると，任意定数Cの分だけ無限に曲線を描くことができる．
+
+    このような曲線の集まりを **解曲線群(solution curve group)** という．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    どの解曲線も元の微分方程式$\frac{dy}{dx} = f(x)$を満たす関数であるから，解曲線上のどの点においても，その点における接線の傾きは$f(x)$である．
+
+    つまり，xy平面上の各点において，接線の傾き$f(x)$を与えたときに得られる曲線が，解曲線群である．
+
+    また，解曲線が通る1点を指定すれば，それによって解曲線はただ1つに定まる．
+
+    このように，1つの解曲線を定める条件を**初期条件(initial condition)**という．これは，
+
+    $\displaystyle 「x = x_0のとき，y = y_0」あるいは「y(x_0) = y_0」$
+
+    のように表される．独立変数の特定の値に対する解の値を **初期値(initial value)** という．
+
+    この初期条件によって，任意定数はただ1つに定まり，一般解にその値を代入して得られる解を **特殊解(particular solution)** という．
+
+    $\\\\$
+
+    **例題2.1** 　次の微分方程式について，一般解と与えられた初期条件を満たす解（特殊解）をそれぞれ求めよ．
+
+    (1)$\displaystyle \frac{dy}{dx} = \sqrt[3]{2x + 8}, y(0) = 2$，　(2)$\displaystyle \frac{dy}{dx} = \frac{1}{3x + 2}, y(2) = 0$
+
+    $\\\\$
+
+    解説：以下，Cは任意定数とする．
+
+    (1)一般解は，$\displaystyle y = \int (2x + 8)^{\frac{1}{3}}dx = \frac{3}{8}(2x + 8)^{\frac{4}{3}} + C = \frac{3}{8}(2x + 8)\sqrt[3]{2x + 8} + C$．
+
+    初期条件より，$\displaystyle 2 = \frac{3}{8} \cdot 8^{\frac{4}{3}} + C$を満たすのは，$C = -4$のときである．従って，
+
+    特殊解は，$\displaystyle y = \frac{3}{8}(2x + 8)sqrt[3]{2x + 8} - 4$である．
+
+    (2)一般解は，$\displaystyle y = \int \frac{1}{3x + 2}dx = \frac{1}{3} \ln |3x + 2| + C$である．
+
+    初期条件より，$\displaystyle 0 = \frac{1}{3} \ln 8 + C = \frac{1}{3} \ln 2^3 + C = \ln 2 + C$を満たすのは，$C = - \ln 2$のときである．従って，
+
+    特殊解は，$\displaystyle y = \frac{1}{3} \ln |3x + 2| - \ln 2 \biggl(= \frac{1}{3} \ln |\frac{3x + 2}{8}| \biggr)$である．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 変数分離形の微分方程式
+
+    1階微分方程式のうち，右辺の$f(x,y)$がxだけの関数$f(x)$とyだけの関数$g(y)$の積で表される場合は，
+
+    $\displaystyle \frac{dy}{dx} = f(x)g(x)$
+
+    と表される．$g(y) \neq 0$の場合，$g(x)$で両辺を割ると，
+
+    $\displaystyle \frac{1}{g(y)} \cdot \frac{dy}{dx} = f(x)$
+
+    となり，左辺はyだけで表され，右辺はxだけで表される形となるので，このようの微分方程式を **変数分離式(variable separation type)** の微分方程式と呼ぶ．
+
+    両辺をxについて積分すると，
+
+    $\displaystyle \int \frac{1}{g(y)} * \frac{dy}{dx}dx = \int f(x) dx$
+
+    となり，左辺は置換積分の公式により，
+
+    $\displaystyle \int \frac{1}{g(y)}dy = \int f(x)dx$
+
+    となるので，あとは両辺の積分計算を実行し，式変形をすることで一般解が得られる．任意定数（積分定数）は，まとめて右辺にのみ記せばよい．
+
+    $\\\\$
+
+    **例題2.2** 　次の微分方程式について，一般解と与えられた初期条件を満たす解（特殊解）をそれぞれ求めよ．
+
+    (1)$\displaystyle \frac{dy}{dx} = 3x^2 y, y(0) = 1$　　(2)$\displaystyle \frac{dy}{dx} = e^{2y} \sin 2x, y(\pi) = 0$
+
+    $\\\\$
+
+    解説：以下，Cは任意定数とする．
+
+    (1)$y \neq 0$のとき，yで両辺を割ると，$\frac{1}{y} \frac{dy}{dx} = 3x^2$．
+    
+    両辺をxについて積分すると，$\int \frac{1}{y}dy = \int 3x^2 dx$となり，$\ln |y| = x^3 + C$である．
+
+    これをyについて解くと，$|y| = e^{x^3 + C}$ ⇔ $y = \pm e^{x^3 + C} = (\pm e^C)e^{x^3} = Ae^{x^3}$ (Aは0以外の任意の定数)
+
+    が得られる．また，y=0は与えられた微分方程式を満たし，これも1つの解である．
+
+    この解は，A=0の場合も含めることで，上の表現にまとめることができるので，一般解は$y = Ae^{x^2}$(Aは任意定数)と表すことができる．
+
+    さらに，初期条件より，$1 = A*e^0$を満たすのは，A = 1のときである．従って，特殊解は$y = Ae^{x^3}$である．
+
+    (2)$e^{2y} \neq 0$で両辺を割ると，$e^{-2y} \frac{dy}{dx} = \sin 2x$．
+
+    この両辺をxについて積分すると，$\int e^{-2y} dy = \int \sin 2x dx$となり，$- \frac{1}{2}e^{-2y} = - \frac{1}{2} \cos 2x + C$である．
+
+    これをyについて解くと，一般解$e^{-2y} = \cos 2x + C$ ⇔ $-2x = \ln( \cos 2x + C)$　⇔ $y = - \frac{1}{2} \ln ( \cos 2x + C)$が得られる．
+
+    さらに，初期条件より，$0 = - \frac{1}{2} \ln ( \cos 2 \pi + C) = - \frac{1}{2} \ln (1 + C)$を満たすのは，C-0のときである．従って，特殊解は$y = - \frac{1}{2} \ln ( \cos 2 \pi)$である．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題2.3** 　次の微分方程式について一般解を求め，解曲線の概形を答えよ．
+    
+    (1)$\displaystyle \frac{dy}{dx} = \frac{x}{y}$　　(2)$\displaystyle \frac{dy}{dx} = \frac{2(y + 1)}{x}$
+
+    $\\\\$
+
+    解説：以下，Cは任意定数とする．
+
+    (1)両辺にyを掛けて，両辺をxについて積分すると，$\int ydy = \int xdx$より，$\frac{1}{2}y^2 = \frac{1}{2}x^2 + C$となり，
+
+    一般解は$y^2 - x^2 = C$　$(y \neq 0)$と表すことができる．
+
+    また，$C \neq 0$のとき，解曲線は双曲線であり，$C = 0$のとき，解曲線は直線$y = \pm x$である．（ただし，x線上の点を除く）
+
+    (2)$y \neq -1$のとき，$y + 1$で両辺を割ると，$\frac{1}{y+1} \frac{dy}{dx} = \frac{2}{x}$．
+
+    この両辺をxについて積分すると，$\int \frac{1}{y+1}dy = \int \frac{2}{x}dx$となり，$\ln |y+1| = 2 \ln|x| + \ln C = \ln Cx^2$である．
+
+    これをyについて解くと，$|y+1| = Cx^2$ ⇔ $y = -1 \pm Cx^2 = -1 + Ax^2$　(Aは0以外の任意の定数)が得られる．
+
+    また，y=-1は与えられた微分方程式を満たし，これも解の1つである．
+    
+    この解は，A=0の場合も含めることで，先程の式にまとめることができ，Aを任意定数として一般解は$y = Ax^2 - 1$ ($x \neq 0$)と表すことができる．
+
+    また，$A \neq 0$のとき，解曲線は放物線であり，$A = 0$のとき，解曲線は直線$y = -1$である． (ただし，点(0,1)を除く)
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week10"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    ## 1階線形微分方程式
+
+    1階微分方程式のうち，$P(x)$，$Q(x)$をxの関数として，
+
+    $\displaystyle \frac{dy}{dx} + P(x)y = Q(x)$
+
+    と表される形の微分方程式を考える．この微分方程式は$y$と$\frac{dy}{dx}$についての1次であるので， **1階線形微分方程式 (liner differential equation of first order)** といわれる．
+
+    そして，右辺が恒等的にゼロ（$Q(x) \equiv 0$）である場合を **同次方程式 (homogeneous equation)** と呼び，そうでない場合を **非同次方程式 (inhomogeneous equation)** と呼ぶ．
+
+    同次方程式（$Q(x) \equiv 0$）の場合は変数分離形に他ならない．従って変数分離形の微分方程式の解法を用いて，その解は
+
+    $\displaystyle y = Ae^{- \int P(x)dx}$ (Aは任意定数)
+
+    と表すことができる．さらに，任意定数Aをxの関数$u(x)$と考えて，上記の式をxについて微分すると，
+
+    $\displaystyle \frac{dy}{dx} = \frac{du}{dx} \cdot e^{- \int P(x)dx} - P(x) \cdot ue^{- \int P(x)dx} = \frac{du}{dx} \cdot e^{- \int P(x)dx} - P(x)y$
+
+    となり，これを上記の$P(x)$，$Q(x)$の式に代入すると，uについての微分方程式
+
+    $\displaystyle \frac{du}{dx} \cdot e^{- \int P(x)dx} = Q(x)$ ⇔ $\frac{du}{dx} = e^{ \int P(x)dx}Q(x)$
+
+    が得られ，これをxについて積分すると，
+
+    $\displaystyle u(x) = \int e^{ \int P(x)dx}Q(x)dx + C$ (Cは任意定数)
+
+    である．従って，1階線形非同次微分方程式の一般解は，
+
+    $y = e^{- \int P(x)dx} \biggl\lbrace \int e^{ \int P(x)dx}Q(x)dx + C \biggr\rbrace$
+
+    と表される．
+
+    上のように，1階線形非同次微分方程式を解くにあたって，まず$Q \equiv 0$の場合の同次方程式を解き，一般解の任意定数Aをxの関数$u(x)$と考えて，これが元の微分方程式を満たすよう$u(x)$を定め一般解を得る方法を， **定数変化法 (method of variation of constant)** という．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題2.4** 　次の微分方程式の一般解を求めよ．
+
+    $ \frac{dy}{dx} \cos x + y \sin x = 1$
+
+    $\\\\$
+
+    解説：同次方程式$\frac{dy}{dx} \cos x + y \sin x = 0$は変数分離形であるから，$\frac{1}{y} \frac{dy}{dx} = - \tan x$の両辺をxについて積分してから，yについて整理することで，その一般解の表現$y = A \cos x$(Aは任意定数)を得る．
+
+    次に，任意定数Aをxの関数$u(x)$と考えて，非同次方程式に用いると，uについての微分方程式
+
+    $\frac{du}{dx} \cos^2 x = 1$
+
+    を得る．ここで，$\cos x \neq 0$のとき，$\frac{du}{dx} = \sec^2 x$の両辺をxについて積分して，$y = \tan x + C$(Cは任意定数)を得る．
+
+    この結果，元の微分方程式の一般解は，$y = \sin x + C \cos x$(Cは任意定数)と表せる．（これは，$\cos x = 0$の場合も含む．）
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week11"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    # 2階線形微分方程式
+
+    ## 2階線形同次微分方程式
+
+    微分方程式に含まれる導関数の次数が第2次導関数までである2階微分方程式(second order differential equation)のうち，$y$と$\frac{dy}{dx}$と$\frac{d^{2}y}{dx^2}について **2階線形微分方程式 (liner differential equation of second order)**
+
+    $\displaystyle \frac{d^2 y}{dx^2} + P(x) \frac{dy}{dx} + Q(x)y = R(x)$   (2.15)
+
+    について学習する．ただし，$P(x)$，$Q(x)$，$R(x)$はxの関数である．
+
+    $\\\\$
+
+    ここでは， R(x)≡0である 2階線形同次微分方程式について考える.
+
+    $\displaystyle \frac{d^2y}{dx^2} + P(x)\frac{dy}{dx} + Q(x)y = 0 (2.16)$
+    
+    この微分方程式の一般解は，2 つの 1 次独立な解$y_1(x)$と $y_2(x)$ を用いて，その線形結合 
+    
+    $\displaystyle y = c_1y_1(x) + c_2y_2(x) (c_1, c_2$は任意定数)
+    
+    で表される.さらに, 式(2.16)において, $P(x)$も$Q(x)$も定数であるような微分方程式
+    
+    $\displaystyle \frac{d^2y}{dx^2} + a\frac{dy}{dx} + by = 0$  ($a, b$は実数の定数)  (2.18)
+    
+    を, 定数係数の2階線形同次微分方程式という.ここで，$y = e^{\lambda x}($\lambda$は定数)とおくと，
+
+    $y' = \lambda e^{\lambda x}, y'' = \lambda e^{\lambda x}$であるから, これらを微分方程式に代入すると,
+    
+    $\displaystyle (\lambda ^2 + a\lambda + b)e^{\lambda x} = 0 $　　　　(2.19)
+    
+    となり, $e^{\lambda x} ≠ 0$であるから, $\lambda$ が２次方程式
+    
+    $\displaystyle \lambda ^2 + a\lambda + b = 0$　　　　(2.20)
+    
+    を満たせば, $y = e^{\lambda x}$が微分方程式(2.18)の解となる. 
+    
+    したがって，まず$\lambda$ の2次方程式(2.20)を解き, 次に２つの1次独立な微分方程式の解を見い出す. 
+    
+    この2次方程式(2.20)を2階線形同次微分方程式(2.18)の **特性方程式(characteristic equation)** と呼ぶ.
+
+    $\\\\$
+
+    $\\\\$
+  
+    特性方程式は2次方程式であるから，その解は次の3タイプに分類され，そのタイプごとに
+    2つの1次独立な微分方程式の解が分かっており，一般解はその線形結合で表される.
+
+    $\\\\$
+
+    ### 定数係数の2階線形同次微分方程式の一般解
+
+    特性方程式(2.20)の解が,
+
+    (1) 異なる２つの実数解$\lambda _1$と$\lambda _2$を持つとき, 一般解は $y = c_1 e^{\lambda _1 x}+c_2 e^{\lambda _2 x}$であり, 
+
+    (2) 重解$\lambda$ を持つとき, 一般解は $y = (c_1 + c_2 x)e^{\lambda x}$であり, 
+
+    (3) 異なる２つの複素数解 $p \pm qi (p, q$ は実数)を持つとき, 一般解は
+
+    　　$y = e^{p x}(c_1 cosqx + c_2 sinqx)$ である.
+
+    ただし, $c_1, c_2$は任意定数とする.
+
+    $\\\\$
+
+    $\\\\$
+    
+    **例題2.5** 　次の微分方程式の一般解を求めよ．
+
+    (1)$\displaystyle \frac{d^2y}{dx^2} + \frac{dy}{dx} -2y = 0$　　　(2)$\displaystyle \frac{d^2y}{dx^2} + 2\frac{dy}{dx} + y = 0$　　　(3)$\displaystyle \frac{d^2y}{dx^2} +2\frac{dy}{dx} +2y = 0$
+
+    解答：以下，$c_1,c_2$は任意定数とする．
+
+    (1)特性方程式$\lambda ^2 + 2\lambda -2 = 0$の解は異なる２つの実数解$\lambda = -2, 1$であるから,
+
+    　 一般解は $y = c_1e^{-2x} + c_2e^{x}$である.
+
+    (2)特性方程式$\lambda ^2 + 2\lambda + 1 = 0$の解は異なる２つの実数解$\lambda = -1$であるから,
+
+    　 一般解は $y = (c_1 + c_2x)e^{-x}$である.
+
+    (3)特性方程式$\lambda ^2 + 2\lambda + 2 = 0$の解は異なる２つの実数解$\lambda = -1\pm i$であるから,
+
+    　 一般解は $y = e^{-x}(c_1cosx + c_2sinx)$である.
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題2.6** 　次の微分方程式について，一般解と与えられた初期条件を満たす解（特殊解）をそれぞれ求めよ．
+
+    (1)$\displaystyle \frac{d^2y}{dx^2} - \frac{dy}{dx} - 6y = 0, y(0)=2, y'(0)=1$
+
+    (2)$\displaystyle \frac{d^2y}{dx^2} - 2 \frac{dy}{dx} + 5y = 0, y(0)=1, y'(0)=-1$
+
+    $\\\\$
+
+    解答：
+
+    (1)特性方程式$\lambda ^2 - \lambda - 6 = 0$の解は異なる2つの実数解$\lambda = -2, 3$であるから，一般解は$y = c_1 e^{-2x} + c_2 e^{3x}$($c_1,c_2$は任意定数)である．
+
+    これをxについて微分すると，$y' = -2c_1 e^{-2x} + 3c_2 e^{3x}となるから，初期条件は
+
+    $\displaystyle \begin{cases} y(0) = c_1 + c_2 = 2 \\\\ y'(0) = -2c_1 + 3c_2 = 1 \end{cases}$となり，これを解くと$\displaystyle \begin{cases} c_1 = 1 \\\\ c_2 = 1 \end{cases}$である．
+
+    従って特殊解は，$y = e^{-2x} + e^{3x}$となる．
+
+    (2)特性方程式$\lambda ^2 -2 \lambda + 5 = 0$の解は異なる2つの複素数解$\lambda = 1 \pm 2i$であるから，一般解はy = e^x (c_1 \cos 2x + c_2 \sin 2x)$ ($c_1,c_2$は任意定数)である．
+
+    これをxについて微分すると，
+
+    $\displaystyle y' = e^x (c_1 \cos 2x + c_2 \sin 2x) + 2e^x (-c_1 \sin 2x + c_2 \cos 2x)$
+
+    となるから，初期条件は$y(0) = c_1 = 1, y'(0) = c_1 + 2c_2 = -1$となり，これを解くと$c_1 = 1, c_2 = -1$である．
+
+    従って特殊解は，$y = e^x ( \cos 2x - \sin 2x)$となる．
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week15"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    # 曲線の長さと線積分
+
+    ## 曲線の長さ
+
+    区間 [ a , b ] で滑らかな関数$y=f(x)$に対し，この区間 [ a , b ] における曲線 $y=f(x)$の長さ$L$ は
+
+    $\displaystyle L = \int_{a}^{b} \sqrt{1 + \lbrace f'(x) \rbrace^2 } dx$
+
+    である.
+
+    $\\\\$
+
+    **例題3.1** 　次の曲線$y = f(x)$について，与えられた区間における長さを求めよ．
+
+    (1)$\displaystyle y = x\sqrt x , [0, 1]$　　　　(2)$\displaystyle y = \frac{e^2 + e^{-x}}{2} , [0, 1]$
+
+    $\\\\$
+
+    解答：
+
+    (1)$\displaystyle y = x^{\frac{3}{2}}$ であるから,$\displaystyle \frac{dy}{dx} = \frac{3}{2}x^{\frac{1}{2}}$であり,求める曲線の長さは以下の通り.
+
+    $\displaystyle \int_{1}^{0} \sqrt {1 + \Bigl( \frac{3}{2}x^{\frac {1}{2}} \Bigr)^2}dx = \int_{1}^{0} \sqrt {1 + \frac{9}{4}x}dx = \left[\frac{9}{4} \times \frac{2}{3}(1 + \frac{9}{4}x)^{\frac{3}{2}} \right]_0^1 = \frac{13\sqrt 13 - 8}{27}\\\\$
+    
+    (2)$\displaystyle \frac{dy}{dx} = \frac{e^x - e^{-x}}{2}$から, $\displaystyle 1 + \lbrace f'(x) \rbrace^2 = \left(\frac{e^x + e^{-x}}{2}\right) ^2$となり，求める曲線の長さは,
+
+    $\displaystyle \int_{0}^{1} \sqrt {1 + \lbrace f'(x) \rbrace^2} dx = \int_{0}^{1} \frac{e^x + e{-x}}{2}dx = \left[ \frac{e^x + e{-x}}{2} \right]_0^1 = \frac{e^1 + e^{-1}}{2}$
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week16"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    # 仕事とエネルギー
+
+    ## 仕事と仕事率
+
+    物体に一定の大きさの力 $F [N]$ を加え，力の向きに距離$ d [m] $だけ物体を移動させたとき，
+
+    「力は物体に対して仕事をした」といい，力のした **仕事 (work)** は，
+
+    $\displaystyle W = F・d$                                                        (3.10)
+
+    と定義される. 
+    
+    従って，仕事の単位は [N・m] [kg・$m^2 / s^2$ ] であり，これを**ジュール (joule)** といい，[J] と記す.
+
+    単位時間あたりにする仕事を**仕事率 (power)** という. 
+
+    $\\\\$
+
+    $\\\\$
+
+    x 軸に沿った力 F (x) が，区間 [ a , b ] の 移動中に物体にする仕事 W は，
+
+    $\displaystyle W = \int_{a}^{b} F(x) dx$　　　(3.12)
+
+    と定められている.
+
+    $\\\\$
+    
+    力 $\Bbb F$ のはたらく方向と物体の変位の方向のなす角を$\theta$とすると, 物体の変位 $\mathbb s$ に対して有効に作用した力の大きさは，
+    
+    $| \Bbb F | cos\theta$であり，力が物体にする仕事W[J]は,
+
+    $\displaystyle W = (| \Bbb F | cos\theta )・|\mathbb s| = \Bbb F・\mathbb s$　　　(3.13)
+
+    のように表せる.(再右辺はベクトルの内積を表す.)
+
+    $\\\\$
+
+    **例題3.2** 　水平から$30 \circ$の勾配を持つ滑らかな斜面上を，質量$2.0[kg]$のぶって意を斜面にそってゆっくりと$3.0[m]押し上げるとき，
+
+    重力以外の外力のする仕事を求めよ．ただし，重力加速度の大きさを$9.8[m / s^2]$とする．
+
+    $\\\\$
+
+    解答：斜面に素って上向きにx軸を，斜面に垂直上向きの方向にy軸をとると，物体に働く重力以外の外力は物体を押し上げる力と斜面からの垂直抗力であり，その合力$\Bbb F$は重力と釣り合うことから，
+
+    $\displaystyle \Bbb F = (2.0 \times 9.8 \sin 30 \circ , 2.0 \times 9.8 \cos 30 \circ ) = (9.8, 9.8 \sqrt{3})$
+
+    であり，変位は$\mathbb s = (3.0, 0)$であるから，外力$\Bbb F$のする仕事は，
+
+    $\displaystyle W = \Bbb F \cdot \mathbb s = 9.8 \times 3.0 = 29.4[J]$
+
+    である．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    先程のベクトルの式(3.13)は，物体の変位$\mathbb s$の向きが時々刻々変化する場合でも，瞬間瞬間において成り立つ．
+
+    従って，物体に何らかの力が働いて，物体がある曲線$C$に沿って移動するような場合，曲線を細かく分割すると，それは物体の微小変位$\Delta \mathbb{s}_i$であり，移動中に力がする仕事は，
+
+    $\displaystyle \sum_{i=1}^{n} \Bbb F ( \mathbb{c}_i) \cdot \Delta \mathbb{s}_i$　　　(3.14)
+
+    と表せる．ここで，$\mathbb{c}_i$は曲線の$i$番目の微小部分に含まれる任意の点の位置とする．
+
+    分割数$n$を増やすことで定積分を用いて，力$\Bbb F ( \mathbb r)$が曲線$C$に沿って物体にする仕事$W$は，
+
+    $\displaystyle W = \int_{C} \Bbb F ( \mathbb r) \cdot d \mathbb s$　　　(3.15)
+
+    と定められる．ここで，$\mathbb r$は物体の位置を表す．
+
+    この積分は，ある曲線に沿って定義されるので， **線積分 (line integral)** とよばれる．
+
+    また，力の成分を$\Bbb F = (F_x, F_y, F_z)$, を微少変位の成分を$d\Bbb s = (dx, dy, dz)$と表すと, 以下のように計算される.
+    
+    $\displaystyle W = \int_C{}{}(F_xdx + F_ydy + F_z dz)$　　　(3.16)
+
+    $\\\\$
+
+    **例題3.3** 　半径$1.0[m]$の円周$C$：$x^2 + y^2 = 1$に沿って，点$(1,0)$から点$(0,1)$まで反時計回りに質量$2.0[kg]$の物体を静かに動かすときにする仕事を求めよ．
+
+    ただし，水平方向に$x$を鉛直上向きに$y$をとり，重力加速度の大きさを$9.8[m / s^2]$とする．
+
+    $\\\\$
+
+    解答：$ \Bbb  F = (0,2.0 \times 9.8) = (0,19.6)$であるから，求める仕事は，
+
+    $\displaystyle W = \int_{C}(0dx + 19.6dy) = \int{0}^{1}19.6dy = 19.6 [J]$
+
+    である．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 仕事と運動エネルギー
+    
+    質量mで時刻tにおいて速度vで移動している物体の **運動エネルギー(kinetic energy)** は
+
+    $\displaystyle K(t) = \frac{1}{2}mv^2$                                (3.18)
+
+    で表される.
+
+    $\\\\$
+
+    **例題3.4** 　水平から$30 \circ$の勾配を持つなめらかな斜面上を，質量$2.0[kg]$の物体が斜面に沿ってゆっくりと$3.0[m]$滑り落ちたときの物体の速度$v[m / s]$を求めよ．
+
+    ただし，重力加速度の大きさを$9.8[m / s^2]$とする．
+
+    $\\\\$
+
+    解答：重力のする仕事は，斜面に沿って，$\displaystyle W = 2.0 \times 9.8 \sin 30 \circ = 29.4[J]$であり，
+
+    この分だけ運動エネルギーが増加するから，$\displaystyle \frac{1}{2}2.0 \cdot v^2 - \frac{1}{2}2.0 \cdot 0^2 = 29.4[J]$である．
+
+    これより，物体の速度は，$\displaystyle v = \sqrt{29.4} = 5.42 \ldots \approx 5.4[m / s]$である．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week17"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    ## ポテンシャルエネルギーと力学的エネルギー保存の法則
+
+    静止している物体を静かに持ち上げるとき，物体の運動エネルギーはゼロのままであるが，外力は仕事をする.
+
+    この仕事のエネルギーはどこへ行ったのであろうか? このエネルギーは，物体の潜在的なエネルギーとして，物体に留まることとなる.
+    
+    このような物体に内在するようなエネルギーを，**ポテンシャルエネルギー (potential energy)** という.
+
+    ポテンシャルエネルギー$U (\mathbb r)$の変化$\delta U$は, 外力$\Bbb F_{ex}$がする仕事$W_{ex}$をもとに定義される. 
+    
+    $\displaystyle \delta U = U(\Bbb r_2)-U(\Bbb r_1) = W_{ex} = \int_C{}^{} \Bbb F_{ex}(\Bbb r)・/d\Bbb s  (3.19)$
+
+    ### 例:
+
+    質量 m [kg] の物体を地面から h [m] の高さまでゆっくり持ち上げるとき，持ち上げる力によるポテンシャルエネルギーの変化$\delta U$[J]は,
+    
+    $\displaystyle \delta U = \int_{0}^{h} mg dy = mgh$                                                    (3.20)
+    
+    である. (鉛直上向きに y 軸をとった.)地面をポテンシャルの基準とした場合，これは重力によるポテンシャルエネルギーそのものである.
+
+    $\\\\$
+
+    **例題3.5** 　水平から$30 \circ$の勾配を持つなめらかな斜面に沿って，質量$m[kg]$の物体をゆっくりと押し上げたとき，物体のもつポテンシャルエネルギーの変化$\Delta U[J]$を求めよ．
+
+    ただし，水平面からの高さが$h[m]$になるまで押し上げるものとする．また，重力加速度の大きさを$g[m / s^2]$とする．
+
+    $\\\\$
+
+    解答：物体をゆっくりと押し上げる力のする仕事は，斜面に沿って，
+
+    $\displaystyle W = mg \sin 30 \circ \times \frac{h}{ \sin 30 \circ} = mgh[J]$
+
+    であり，この分だけ物体はポテンシャルエネルギーが増加する．
+
+    従って，$\Delta U = mgh[J]$．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ポテンシャルエネルギー U ($\Bbb r$) が定義されるためには，力のする仕事が途中の経路によらず，始点と終点の位置のみによって定まることが重要である.
+    
+    物体にはたらく重力やばねの 弾性力などはこの条件を満たしており，このような力を **保存力 (conservative force)** という.
+    
+    一方，摩擦力などがする仕事は経路に依存し，このような力を **非保存力 (nonconservative force)** という.
+
+    物体の運動エネルギーとポテンシャルエネルギーの和を **力学的エネルギー (mechanical energy)** と呼び，保存力のみを受けながら運動する物体は，力学的エネルギーが一定に保たれる.
+    
+    $\displaystyle \frac{1}{2}m{v_1}^2  + U_1 = \frac{1}{2}m{v_2}^2 + U_2$                                  (3.21)
+    
+    これを **力学的エネルギー保存の法則 (law of conservation of mechanical energy)** という.
+
+    一方，非保存力がはたらく場合，非保存力のした仕事の分だけ力学的エネルギーは増減する.
+
+    $\\\\$
+
+    **例題3.6** 　一端を天井に固定したばねの他端に質量$m[kg]$の小球をつなぐ．
+
+    ばねが自然長となるよう小球を支えて制止させた後，速やかに支えを取り除く．
+
+    このとき，小球の最大速度を求めよ．ただし，ばね定数を$k[N / m]$とする．
+
+    $\\\\$
+
+    解答：自然長の位置を原点$O$として，ばねの伸びる向きに$x$軸をとるとき，ばねが自然長であるときの力学的エネルギーはゼロである．
+
+    また，ばねが自然長より$x[m]$だけ下がった位置にある時の小球の速度を$v[m / s]$とすると，力学的エネルギー保存の法則より，
+
+    $\displaystyle \frac{1}{2}mv^2 + \frac{1}{2}kx^2 - mgx = 0$
+
+    である．これより，
+
+    $\displaystyle v^2 = 2gx - \frac{k}{m}x^2 = - \frac{k}{m} \Bigl( x - \frac{mg}{k} \Bigr)^2 + \frac{mg^2}{k}$
+
+    となり，小球の最大速度は$\displaystyle v_{max} = g \sqrt{ \frac{m}{k}}[m / s]$である．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    # 質点系の運動
+
+    ## 運動量と力積
+
+    先程の，仕事やエネルギーは運動の前後の状態の変化を比較するには適しているが，時々刻々変化する運動を見るとき，別の物理量を観察し比較する方が適している場合がある．
+
+    物体の運動の瞬間，瞬間の激しさ（勢い）は，物体の質量$m$と速度$\mathbb v$の両方が影響するので，
+
+    $\displaystyle \mathbb p = m \mathbb v$
+
+    という物理量を観察すると良い．これを物体の **運動量 (momentum)** という．
+
+    運動量を用いると，運動方程式は，
+
+    $\displaystyle \frac{d \mathbb p}{dt} = \Bbb F$
+
+    と書き直すことができ，時刻とともに質量も速度も変化する運動を観察しやすくなる．
+
+    両辺を時刻$t = t_1$から$t = t_2$まで積分すると，
+
+    $\displaystyle \int_{t_1}^{t_2}\frac{d \mathbb p}{dt} = \int_{t_1}^{t_2}\Bbb F dt \leftrightarrow \mathbb p_2 - \mathbb p_1 = \int_{t_1}^{t_2}\Bbb F dt$
+
+    である．右辺の「外力が物体の運動量におよぼす効果」を， **力積 (impulse)** と呼ぶ．
+
+    ### 例：
+
+    水平に速さ$15[m/s]$で運動する質量$0.20[kg]$の小球が壁にぶつかり，正反対の向きに速さ$10[m/s]$ではね返るとき，小球が壁から受けた力積の大きさは，
+
+    $\displaystyle 0.20 \times 10 - 0.20 \times (-15) = 5.0[N \cdot s]$
+
+    である．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 運動量保存の法則
+
+    外力が働かない場合，運動の前後で運動量は保存される．
+
+    しかしながら，物体が複数あり，互いに力を及ぼしあいながら運動する場合，それぞれの運動量は変化する．
+
+    この場合，物体同士が及ぼしあう力には「作用・反作用の法則」が成り立ち，それらの合力はゼロとなる．
+
+    従って，これらの物体の運動量の総和は一定に保たれる．
+
+    $\displaystyle \Bbb P = \sum_{i=1}^{n} \mathbb p_i = \sum_{i=1}^{n}m_i v_i = 一定$　　$\displaystyle \Bigl( \frac{d \Bbb P}{dt} = 0 \Bigr)$
+
+    これを， **運動量保存の法則 (law of conservation of momentum)** という．
+
+    $\\\\$
+
+    ここでは，$n$個の質点から成り立っているような体系(system)を考え，これを **質点系 (system of particles)** と呼ぶ．
+
+    $i$番目の質点に系の外から働く力$\Bbb F_i$を **外力 (external force)** ，系の他の点，例えば$k$番目の質点からはたらく力$\Bbb F_{ki}$を **内力 (internal force)** と呼ぶ．
+
+    このとき，$i$番目の質点の運動方程式は，
+
+    $\displaystyle \frac{d \mathbb p_i}{dt} = \Bbb F_i + \sum_{k \neq i}\Bbb F_{ki}$　　　(3.26)
+
+    である．$k \neq i$である理由は，$\Bbb F_{ii}$という力は存在しないためである．
+
+    また，運動の第3法則（作用・反作用の法則）から，
+
+    $\displaystyle \Bbb F_{ik} = - \Bbb F_{ki} \leftrightarrow \Bbb F_{ik} + \Bbb F_{ki} = \mathbb 0$　　　(3.27)
+
+    が成り立つ．従って，
+
+    $\displaystyle \sum_{i=1}^{n} \sum_{k \neq i}\Bbb F_{ki} = \mathbb 0$　　　(3.28)
+
+    となり，$i$番目の質点の運動方程式(3.26)を全ての質点について足し合わせると，
+
+    $\displaystyle \frac{d}{dt}\sum_{i=1}^{n}\mathbb p_i = \sum_{i=1}^{n}\Bbb F_i \leftrightarrow \frac{d \Bbb P}{dt} = \sum_{i=1}^{n}\Bbb F_i$　　　(3.29)
+
+    が得られる．
+
+    この結果，外力が働かない場合，またはその合力がゼロの場合，運動量保存の法則$\displaystyle \frac{d \Bbb P}{dt} = 0$が成り立つ．
+
+    ### 例：
+
+    直線上を速さ$8.0[m/s]$で飛んできた質量$6.0[kg]$の物体が2つの物体に分裂した．
+
+    このとき，分裂後の一方ｂの物体の質量は$4.0[kg]$で，飛んできたときと同じ向きに速さ$15[m/s]$で進んだ．
+
+    もう一方の物体の速度を$v[m/s]$とすると，運動量保存の法則
+
+    $6.0 \times 8.0 = 4.0 \times 15 + (6.0 - 4.0) \times v$
+
+    より，$v = -6.0[m/s]$となるので，飛んできた時と逆向きに速さ$6.0[m/s]$で進むことがわかる．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 反発係数
+
+    先程の例のように分裂する物体や一体化する物体の運動とは異なり，2つの物体が質量を変えることなく衝突するとき，それらの間には，運動量保存の法則
+
+    $m_1 \Bbb V_1 + m_2 \Bbb V_2 = m_1 \mathbb v_1 + m_2 \mathbb v_2$　　　(3.30)
+
+    だけでなく，次の式で定義される **反発係数 (coefficient of restitution)** 
+
+    $\displaystyle e = \frac{(衝突後の遠ざかる速さ)}{(衝突前の近づく速さ)}$　　　(3.31)
+
+    も考慮する必要がある．ここで，$m_1$，$m_2$は2つの物体の質量，$\Bbb V_1$，$\Bbb V_2$は衝突前の物体の速度，$\mathbb v_1$，$\mathbb v_2$は衝突後の物体の速度を表す．
+
+    この反発係数$e$の値は$0 \leq e \leq 1$の範囲の値であり，2物体の種類によって定まる．
+
+    $e=1$であるような衝突を **弾性衝突 (elastic collision)** と呼び，この衝突で運動エネルギーは保存される．
+
+    また，そうでない場合の衝突$(0 \leq e < 1)$は **非弾性衝突 (inelastic collision)** と呼ばれ，運動エネルギーは保存されず，音や光や熱のエネルギーとなって損失する．
+
+    特に，$e=0$であるような衝突は **完全非弾性衝突(perfectly inelastic collision)** と呼ばれ，衝突によって全くはね返らない．すなわち，物体がくっついてしまう場合である．
+
+    $\\\\$
+
+    **例題3.7** 　静止している質量$0.20[kg]$の小球Ａに，質量$0.80[kg]$の小球Ｂを速さ$10[m/s]$で衝突させる．
+
+    このとき，以下の問いに答えよ．ただし，反発係数を$0.40$とする．
+
+    (1)衝突後の2つの小球の速度を求めよ．
+
+    (2)衝突によって失われた力学的エネルギーを求めよ．
+
+    $\\\\$
+    
+    解答：
+
+    (1)衝突後の小球の速度をそれぞれ$v_A [m/s]$，$v_B [m/s]$とすると，運動量保存の法則より，
+
+    $0.20 \times 0 + 0.80 \times 10 = 0.20 \times v_A + 0.80 \times v_B$
+
+    また，反発係数の式より，
+
+    $v_A - v_B = -0.40 \times (0 - 10)$
+
+    である．これらを解いて，$v_A = 11.2[m/s]$，$v_B = 7.2[m/s]$である．
+
+    (2)衝突前後の力学的エネルギーの差は，以下のように計算される．
+
+    $\displaystyle \frac{1}{2} \times 0.80 \times 10^2 - \Bigl( \frac{1}{2} \times 0.20 \times 11.2^2 + \frac{1}{2} \times 0.80 \times 7.2^2 \Bigr)$
+
+    $\displaystyle = 40 - (12.544 + 20.736) = 40 - 33.28 = 6.72[J]$
+
+    $\\\\$
+
+    $\\\\$
+
+
+
+-
+  title: "week19"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    # 図形の面積と重心
+
+    ## 図形の面積
+
+    曲線y = f(x)がx軸との上下関係を何度も変える場合も, その都度積分を分け, 曲線がx軸よりも下側にあるときの積分の符号を変えればよい. 
+    
+    したがって求める面積は, 
+
+    $\displaystyle \int_{a}^{b} |f(x)|dx$　　　(4.1)
+
+    のように絶対値の記号を用いて表すことができる.
+
+    $\\\\$
+
+    **例題4.1** 　次の関数とx軸と２直線 x = 0, x= 2戸で囲まれる部分の面積を求めよ.
+
+    (1)$\displaystyle y = x^2 -1$　　　(2)$\displaystyle y = \sin \pi x$
+
+    $\\\\$
+
+    解答：
+
+    (1)関数$y = x^2 -1$のグラフは, 区間[0, 1)でx軸より下側に,区間(1, 2]でx軸より上側にある.
+
+    したがって，求める面積は,
+
+    $\displaystyle \begin{align} \int_{0}^{2}|x^2 - 1|dx &= \int_{0}^{1} \lbrace - (x^2 - 1) \rbrace dx + \int_{1}^{2}(x^2 - 1)dx \\\\ &= \Bigl\lbrack - \frac{1}{3}x^3 + x \Bigr\rbrack_{0}^{1} + \Bigl\lbrack \frac{1}{3}x^3 - x \Bigr\rbrack_{1}^{2} \\\\ &= \Bigl\lbrace \frac{2}{3} - 0 \Bigr\rbrace + \Bigl\lbrace \frac{2}{3} - \Bigl( - \frac{2}{3} \Bigr) \Bigr\rbrace \\\\ &= 2 \end{align}$
+
+    (2)関数$y = sin\pi x$のグラフは, 区間[0, 1) で x 軸より上側に，区間 (1, 2] で x 軸 より下側にある.
+    
+    従って，求める面積は，
+
+    $\displaystyle \begin{align} \int_{0}^{2}| \sin \pi x|dx &= \int_{0}^{1}\sin \pi x dx + \int_{1}^{2}(- \sin \pi x)dx \\\\ &= \Bigl\lbrack - \frac{1}{\pi} \cos \pi x \Bigr\rbrack_{0}^{1} + \Bigl\lbrack \frac{1}{\pi} \cos \pi x \Bigr\rbrack_{1}^{2} \\\\ &= \Bigl\lbrace \frac{1}{\pi} - \Bigl( - \frac{1}{\pi} \Bigr) \Bigr\rbrace + \Bigl\lbrace \frac{1}{\pi} - \Bigl( - \frac{1}{\pi} \Bigr) \Bigr\rbrace \\\\ &= \frac{4}{\pi} \end{align}$
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題4.2** 　$0 \leq x \leq 2$ の範囲で, 2曲線$y = cos\pi x$と$y = sin\pi x$と2直線 $x = 0, x = 2$で囲まれる部分の面積を求めよ.
+
+    $\\\\$
+
+    解答：
+
+    区間$[0, \frac{1}{4}], [\frac{5}{4}, 2]$で$cos\pi x \geq sin\pi x$, 区間$[\frac{1}{4}, \frac{5}{4}]$で$cos\pi x \leq sin\pi x$である.
+
+    したがって, 求める面積は,
+
+    $\displaystyle \begin{align} S &= \int_{0}^{frac{1}{4}} \lbrace \cos \pi x - \sin \pi x \rbrace dx + \int_{\frac{1}{4}}^{\frac{5}{4}} \lbrace \sin \pi x - \cos \pi x \rbrace dx + \int_{\frac{5}{4}}^{2} \lbrace \cos \pi x - \sin \pi x \rbrace dx \\\\ &= \frac{1}{\pi} \Bigl\lbrack \sin \pi x + \cos \pi x \Bigr\rbrack_{0}^{\frac{1}{4}} + \frac{1}{\pi} \Bigl\lbrack - \cos \pi x - \sin \pi x \Bigr\rbrack_{\frac{1}{4}}^{\frac{5}{4}} + \frac{1}{\pi} \Bigl\lbrack \sin \pi x + \cos \pi x \Bigr\rbrack_{\frac{5}{4}}^{2} \\\\ &= \frac{\sqrt{2} - 1 + 2 \sqrt{2} + 1 + \sqrt{2}}{\pi} \\\\ &= \frac{4 \sqrt{2}}{\pi} \end{align}$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+    
+    ## 薄板の重心
+
+    xy平面上に薄板 (thin board; lamina) があるとする(板の厚みは無視できるものとする).薄板の面積Sは
+
+    $\displaystyle S = \int_{a}^{b} \lbrace f_1(x)-f_2(x) \rbrace dx$　　　(4.5)
+
+    $\\\\$
+
+    大きさのある物体に対しても，「合力の力のモーメント」=「各々の力のモーメントの和」 が成り立つ.
+     
+    物体をx方向に細分化すると, i番目の微小部分にはたらく重力は $(\sigma f(x_i),delta x)g$であり, y 軸からの距離は $x_i$ であるので，
+     
+    **面密度(area density)**$\sigma$が一定の薄板にはたらく重力に関して，原点周りの力のモーメントのつり合い式は， $\delta x \rightarrow 0$ の極限下で,
+
+    $\displaystyle Mg \cdot x_G = \int_{a}^{b} \lbrace \sigma gf(x) \rbrace \cdot x dx = \sigma g \int_{a}^{b} x \cdot f (x)dx$　　　(4.7)
+
+    と表せる. ここで，薄板の重心x座標を$x_Gとした.これとM = \sigma S$から,
+    
+    $\displaystyle x_G = \frac{\sigma \int_{a}^{b}x \cdot f(x)dx }{M} = \frac{\int_{a}^{b} x \cdot f(x)dx}{\int_{a}^{b} f(x)dx}$　　　(4.8)
+
+    のようにして, 薄板の重心のx座標$x_G$を求めることができる.
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題4.3** 　$x \geq 0$ の範囲で, 放物線$y = 1 - x^2$ とx軸とで囲まれる部分で表される形状の薄板がある.
+    
+    面密度を一様として, 重心のx座標を積分を利用して求めよ.
+
+    $\\\\$
+
+    解答：
+
+    放物線とx軸との交点のx座標は$ x = \pm 1$であるから, 薄板の重心のx座標$x_G$は,
+    
+    $\displaystyle x_G = \frac{\int_{0}^{1}x(1-x^2)dx}{\int_{0}^{1}(1-x^2)dx} = \frac{\Bigl\lbrack \frac{1}{2}x^2-\frac{1}{4}x^4 \Bigr\rbrack_{0}^{1}}{\Bigl\lbrack x - \frac{1}{3}x^3\Bigr\rbrack_{0}^{1}} = \frac{\frac{1}{4}}{\frac{x}-\frac{2}{3}} = \frac{3}{8}$
+
+    $\\\\$
+
+    $\\\\$
+
+    重心の$y$座標$y_G$についても同様にして，
+
+    $\displaystyle y_G = \frac{\sigma \int_{c}^{d}y \cdot g(y)dy}{M} = \frac{\int_{c}^{d}y \cdot g(y)dy}{\int_{c}^{d}g(y)dy}$　　　(4.9)
+
+    によって求められる．ただし，$g(y) = g_1(y) - g_2(y)は薄板の横幅をyの関数として表した式である．
+    
+    $\\\\$
+
+    $\\\\$
+
+    **例題4.4** 　$ x\geq 0 $の範囲で, 放物線$y = 1-x^2$とx軸とで囲まれる部分で表される形状の薄板がある.
+    
+    面密度を一様として, 重心のy座標を積分を利用して求めよ.
+
+    $\\\\$
+
+    解答：
+
+    放物線とy軸との交点のy座標はy = 1であり,放物線は$x=\sqrt {1-y}$と表せるから, 薄板の重心のy座標$y_G$は,
+
+    $\displaystyle y_G = \frac{\int_{0}^{1} y \sqrt{1-y}dy}{\int_{0}^{1}\sqrt{1-y}dy} = \frac{\Bigl\lbrack - \frac{2}{3}u^{\frac{3}{2}} + \frac{2}{5}u^{\frac{5}{2}}\Bigr\rbrack_{1}^{0}}{\Bigl\lbrack - \frac{2}{3}(1-y)^{\frac{2}{3}} \Bigr\rbrack_{0}^{1}} = \frac{\frac{4}{15}}{\frac{2}{3}} = \frac{2}{5}$
+
+    (分子の積分では, u = 1 - y とおいて置換積分を用いた. 部分積分でも計算できる.)
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week20"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    # 重積分入門
+
+    ## 重積分と累次積分
+
+    前節では厚みを無視した薄板を考えたが，３次元的な広がりにおいても体積を細分化して考えることで，積分で計算することが可能となる．
+
+    ### 重積分の定義
+
+    **重積分 (double integral)** とは，2 変数 x と y の値の動き得る領域 (domain)D を xy 平面内に指定し，これと曲面z = f(x, y)とで囲まれる（挟まれる）部分の符号付き体積(signed volume) を指し，以下で定義される．
+
+    $\displaystyle \iint_{D}f(x,y)dxdy = \lim_{n \to \infty} \lim_{m \to \infty} \sum_{i=1}^{n}\sum_{j=1}^{m} f(p_i , q_j) \Delta x_i \Delta y_j$　　　(4.10)
+
+    右辺の和は，$xy$平面内の領域$D$を$x$方向に$n$分割，$y$方向に$m$分割した時の，小領域$D_{ij}$の面積$\Delta x_i \Delta y_j$と，領域$D_{ij}$内の任意の点$(p_i , q_j)$における高さ$f(p_i , q_j)$の積からなり，全ての小領域に対する直方体の符号付体積の和の極限である．
+
+    関数$f(x,y)$が領域$D$で連続であれば，２次元的な積分の時と同様に，どのような点$(p_i , q_i)$を小領域内で選んでもこの極限値は一定の値に収束する．
+
+    $\\\\$
+
+    $\\\\$
+
+    また, 極限の順序は任意に選ばれるので, $m \rightarrow \infty$ (すなわち, $\delta y \rightarrow 0$)の極限を先に考えることは, yについての積分を先に実行することと対応し, 重積分は
+
+    $\displaystyle \iint_{D} f(x, y)dxdy = \int_{a}^{b}{\int_{\varphi_1(x)}^{\varphi_2(x)}f(x, y)dy}dx$　　　(4.11)
+
+    と計算することができる．このように集積の順序を定めて計算する方法を **累次積分 (interated integral)** という．
+
+    1つ目の定積分によって独立変数$y$は姿を消し，被積分関数は$x$についての関数となる．
+
+    $\\\\$
+
+    $\\\\$
+
+    以下の例題は，積分領域が$xy$平面内の長方形領域である場合について，重積分の計算を行う．
+
+    **例題4.5** 　次の2重積分を累次積分にしてその値を求めよ．また，積分領域も図示せよ．
+
+    $\iint_{D}6x^2 ydxdy$$　　　$(D： -1 \leq x \leq 1, 0 \leq y \leq 1)$
+
+    $\\\\$
+
+    解答：積分領域は$xy$平面の領域$D$を満たす長方形である．
+
+    $\displaystyle \begin{align} \iint_{D}6x^2 ydxdy &= \int_{-1}^{1} \Bigl\lbrace \int_{0}^{1}6x^2 ydy \Bigr\rbrace dx \\\\ &= \int_{-1}^{1} \Bigl\lbrack 3x^2 y^2 \Bigr\rbrack_{0}^{1}dx \\\\ &= \int_{-1}^{1}3x^2 dx \\\\ &= \bigl\lbrack x^3 \bigr\rbrack_{-1}^{1} \\\\ &= 2 \end{align}$
+
+    ※別解：積分の順序を逆にして計算しても，同じ結果となる．
+
+    $\displaystyle \iint_{D}6x^2 ydxdy = \int_{0}^{1} \Bigl\lbrace \int_{-1}^{1}6x^2 ydx \Bigr\rbrace dy = \int_{0}^{1} \Bigl\lbrack 2x^3y \Bigr\rbrack_{-1}^{1}dy = \int_{0}^{1}4ydy = \bigl\lbrack 2y^2 \bigr\rbrack_{0}^{1} = 2$
+
+    $\\\\$
+
+    $\\\\$
+
+    以下の例題は，積分領域がxy平面内の曲線領域である場合について，重積分の計算を行う．
+
+    **例題4.6** 　次の2重積分を累次積分にしてその値を求めよ．また，積分領域も図示せよ．
+
+    $\iint_{D}6x^2 ydxdy$　　　$(D：0 \leq x \leq 1, x^2 \leq y \leq x)$
+
+    $\\\\$
+
+    解答：積分領域は$y=x^2$ と$y=x$で囲まれた，かつ$0 \leq x \leq 1$を満たす面積である．
+
+    $\displaystyle \begin{align} \iint_{D}6x^2 ydxdy &= \int_{0}^{1} \Bigl\lbrace \int_{x^2}^{x}6x^2 ydy \Bigr\rbrace dx \\\\ &= \int_[0]^{1} \Bigl\lbrack 3x^2 y^2 \Bigr\rbrack_{x^2}^{x}dx \\\\ &= \int_{0}^{1}3(x^4 - x^6)dx \\\\ &= 3 \Bigl\lbrack \frac{1}{5}x^5 - \frac{1}{7}x^7 \Bigr\rbrack_{0}^{1} \\\\ &= \frac{6}{35} \end{align}$
+
+    ※別解：積分の順序を逆にした場合，$0 \leq y \leq 1$の範囲で$y$を固定した場合に$x$の値の取り得る範囲は，$y \leq x \leq \sqrt{y}$と表されることに注意する．
+
+    $\displaystyle \begin{align} \iint_{D}6x^2 ydxdy &= int_{0}^{1} \Bigl\lbrace \int_{y}^{\sqrt{y}}6x^2 ydx \Bigr\rbrace dy \\\\ &= \int_{0}^{1} \Bigl\lbrack 2x^3 y \Bigr\rbrack_{y}^{\sqrt{y}}dy \\\\ &= \int_{0}^{1}2(y^{\frac{5}{2}} - y^4)dy \\\\ &= 2 \Bigl\lbrack \frac{2}{7}y^{\frac{7}{2}} - \frac{1}{5}y^5 \Bigr\rbrack_{0}^{1} \\\\ &= \frac{6}{35} \end{align}$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 極座標による重積分
+
+    積分領域$D$の形状あるいは被積分関数によっては，$xy$座標で累次積分を行うよりも **極座標 (polar coordimate)** を用いるほうが重積分の計算が容易になる場合がある．
+
+    この場合積分領域は，原点からの長さ方向と角度方向で分割する必要があり，微小領域の底面積が$dr \times (rd \theta)$と表されることに注意しなければならない．
+
+    これに伴って，重積分は以下のように計算される．
+
+    $\displaystyle \iint_{D}f(x,y)dxdy = \iint_{D'}f(r \cos \theta , r \sin \theta)rdrd \theta$　　　(4.15)
+
+    $\\\\$
+
+    例：$\iint_{D}3(x^2 + y^2)dxdy$　$(D：x^2 + y^2 \leq 9, x \geq 0, y \geq 0)$を極座標を用いて計算せよ．
+
+    $\displaystyle \begin{align} (与式) &= \int_{0}^{\frac{\pi}{2}} \int_{0}^{3}3r^2( \cos^2 \theta + \sin^2 \theta)rdrd \theta \\\\ &= \int_{0}^{\frac{\pi}{2}} \int_{0}^{3}3r^3 drd \theta \\\\ &= \int_{0}^{\frac{\pi}{2}} \Bigl\lbrack \frac{3}{4}r^4 \Bigr\rbrack_{0}^{3}d \theta \\\\ &= \int_{0}^{\frac{\pi}{2}} \frac{243}{4}d \theta \\\\ &= \frac{243}{4} \Bigl\lbrack \theta \Bigr\rbrack_{0}^{\frac{\pi}{2}} \\\\ &= \frac{243 \pi}{8} \end{align}$
+
+    $\\\\$
+
+    $\\\\$
+
+
+-
+  title: "week22"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    #立体の体積と重心
+
+    $xyz$座標空間内において，$-z$方向を鉛直下向きにとると，重力は$\Bbb F = (0,0,-mg)$と表せ，位置$mathbb r = (x,y,z)$における力のモーメントは，
+
+    $\displaystyle \mathbb r \times \Bbb F = (-mgy,mgx,0)$　　　(4.16)
+
+    となる．
+
+    力のモーメントの各成分は，それぞれ$x$軸，$y$軸，$z$軸周りの回転の効果を定量化したものであり，回転の向きは **右ねじの法則 (right-handed screw rule)** に従う．
+
+    このことから，大きさのある物体の重心の$x$座標を求めるときには，$y$軸からの距離が同じである微小部分に分割し，「合力の力のモーメント」＝「各々の力のモーメント」を考えると良い．
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 立体の体積と重心
+
+    $xy$平面内の領域$D$とその上の2変数関数$z=f(x, y)$で物体の形状が表現されているとき，物体の密度が一様であるとすると，その質量$M$は
+
+    $\displaystyle M = \rho \iint_{D}f(x, y)dxdy$　　　(4.17)
+
+    で表される. $y$軸からの距離が同じである微小部分は, $x$における物体の切り口の断面積
+
+    $\displaystyle S(x) = \int_{\varphi_1(x)}^{\varphi_2(x)}f(x, y)dy$　　　(4.18)
+
+    に他ならない. 従って, 力のモーメントのつり合い式は
+
+    $\displaystyle Mg \cdot x_G = \int_{a}^{b} \lbrace \rho g S(x) \rbrace \cdot xdx = \rho g\int_{a}^{b}xS(x)dx$　　　(4.19)
+
+    となり，重心の$x$座標$x_G$は，
+
+    $\displaystyle x_G = \frac{\rho\int_{a}^{b}xS(x)dx}{\rho\iint_{D}f(x,y)dxdy} = \frac{\iint_{D} x \cdot f(x, y)dxdy}{\iint_{D} f(x, y)dxdy}$　　　(4.20)
+
+    によって求められる．
+
+    重心の$y$座標についても同様に考えて，$y$座標$y_G$は，
+
+    $\displaystyle \begin{align} y_G &= \frac{\rho \int_{c}^{d}yT(y)dy}{\rho \iint_{D}f(x,y)dxdy} \\\\ &= \frac{\iint_{D} y \cdot f(x, y)dxdy}{\iint_{D} f(x, y)dxdy} \end{align}$　　　(4.21)
+
+    によって求められる．ここで，$T(y)$は，$y$における物体の切り口の断面積
+
+    $\displaystyle T(y) = \int_{\varphi_1(y)}^{\varphi_2(y)}f(x, y)dx$　　　(4.22)
+
+    であった．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題4.7** 　領域$D：0 \leq x \leq 1, 0 \leq y \leq 1$とその上の2変数関数$z = xy$で物体の形状が表現されているとき，物体の重心の$x$座標と$y$座標を求めよ．
+
+    $\\\\$
+
+    解答：$0 \leq x \leq 1, 0 \leq y \leq 1$の範囲の体積は，
+
+    $\displaystyle \begin{align} V = \int_{0}^{1} \Bigl\lbrace \int_{0}^{1}xydy \Bigr\rbrace dx \\\\ &= \int\{0}^{1} \Bigl\lbrack \frac{1}{2}xy^2 \Bigr\rbrack_{0}^{1}dx \\\\ &= \int_{0}^{1}\frac{1}{2}xdx \\\\ &= \Bigl\lbrack \frac{1}{4}x^2 \Bigr\rbrack_{0}^{1} \\\\ &= \frac{1}{4} \end{align}$
+
+    である．物体の重心の$x$座標$x_G$は，
+
+    $\displaystyle \begin{align} x_G &= \frac{1}{V} \times \int_{0}^{1} \Bigl\lbrace \int_{0}^{1}x \times xydx \Bigr\rbrace dx \\\\ &= 4 \times \int_{0}^{1} \Bigl\lbrack \frac{1}{2}x^2 y^2 \Bigr\rbrack_{0}^{1} dx \\\\ &= 4 \times \int_{0}^{1}\frac{1}{2}x^2 dx \\\\ &= 2 \times \Bigl\lbrack \frac{1}{3}x^3 \Bigr\rbrack_{0}^{1} \\\\ &= \frac{2}{3} \end{align}$
+
+    である．物体の重心の$y$座標$y_G$は，
+
+    $\displaystyle \begin{align} y_G &= \frac{1}{V} \times \int_{0}^{1} \Bigl\lbrace \int_{0}^{1}y \times xydx \Bigr\rbrace dy \\\\ &= 4 \times \int_{0}^{1} \Bigl\lbrack \frac{1}{2}x^2 y^2 \Bigr\rbrack_{0}^{1}dy \\\\ &= 4 \times \int_{0}^{1}\frac{1}{2}y^2 dy \\\\ &= 2 \times \Bigl\lbrack \frac{1}{3}y^3 \Bigr\rbrack_{0}^{1} \\\\ &= \frac{2}{3} \end{align}$
+
+    である．
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 回転体の体積と重心
+
+    連続関数$y=f(x)$のグラフの一部分を$x$軸の周りに回転してできる立体を **回転体(solid of revolution)** と呼ぶ.
+    
+    この立体の$x$軸に垂直な断面は，半径が $|f(x)|$ の円であるので，断面積は$S(x) = \pi \lbrace f(x) \rbrace^2$ となる.従って，回転体の体積 $V$ は，
+
+    $\displaystyle V = \int_{a}^{b} \pi \lbrace f(x) \rbrace^2 dx$　　　(4.23)
+
+    のように求めることができる．この積分を利用して，回転体の重心の$x$座標は，
+
+    $\displaystyle \frac{\int_{a}^{b} \pi x \lbrace f(x) \rbrace^2 dx}{\int_{a}^{b} \pi \lbrace f(x) \rbrace^2 dx}$　　　(4.24)
+
+    で求めることができる．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題4.8** 　$x \geq 0$の範囲で，曲線$y = \sqrt{1-x}$と$x$軸とで囲まれる部分を$x$軸の周りに回転して得られる回転体の重心の$x$座標$x_G$を求めよ．
+
+    ただし，立体の密度は一様とする．
+
+    $\\\\$
+
+    解答：回転体の体積$V$は，
+
+    $\displaystyle \begin{align} V &= \int_{0}^{1} \pi \sqrt{1-x}^2 dx \\\\ &= \pi \int_{0}^{1}(1-x)dx \\\\ &= \pi \Bigl\lbrack x - \frac{1}{2}x^2 \Bigr\rbrack_{0}^{1} = \frac{\pi}{2} \end{align}$
+
+    であり，回転体の重心の$x$座標$x_G$は以下の通りである．
+
+    $\displaystyle \begin{align} x_G &= \frac{1}{V} \int_{0}^{1} \pi x \sqrt{1-x}^2 dx \\\\ &= 2 \int_{0}^{1}(x-x^2)dx \\\\ &= 2 \Bigl\lbrack \frac{1}{2}x^2 - \frac{1}{3}x^3 \Bigr\rbrack_{0}^{1} \\\\ &= \frac{1}{3} \end{align}$
+
+    $\\\\$
+
+    $\\\\$
+
+
+
+-
+  title: "week23"
+  rules: 
+  -
+    always: true
+
+  content: |
+
+    ## 慣性モーメント
+
+    平面上で運動する質量$m$の物体について，回転の運動方程式は，
+
+    $\displaystyle mr^2 \frac{d^2 \theta}{dt^2} = N$　　　(4.29)
+
+    である．$n$個の質点からなる質点系の場合，全ての質点に関する回転の運動方程式を足し合わせると，
+
+    $\displaystyle \sum_{i=1}^{n}m_i r_{i}^{2} \frac{d^2 \theta}{dt^2} = \sum_{i=1}^{n}N_i$　　　(4.30)
+
+    となる．大きさを考慮する物体は，総質量$M = \sum_{i=1}^{n}m_i$を保ったまま，質点の数$n$を無限大にしたものと考えられる．
+
+    大きさをもつ物体のうち，物体の形状が変化しないものを **剛体 (rigid body)** と呼ぶ．
+
+    すなわち剛体の場合，物体を武将に分割して考えるが，微小要素の間の位置関係は変化しないものとする．
+
+    物体の形状が変化しないものである剛体は，家訓微小要素の回転角$\theta_i$の変化量はすべて等しいので，先程の式(4.30)は次のように考える．
+
+    $\displaystyle \Bigl( \sum_{i=1}^{n}m_i r_{i}^{2} \Bigr) \frac{d^2 \theta}{dt^2} = \sum_{i=1}^{n}N_i \longrightarrow_{n \to \infty} \int_{V}r^2 dm \frac{d^2 \theta}{dt^2} = N$　　　(4.31)
+
+    ここで$dm$は，微小要素の質量を表し，積分は物体全体にわたって足し合わせることを表す．
+
+    質量分布が一様（密度を$\rho$とする）な場合，$dm = \rho dxdydz = \rho dV$であり，上の積分は，3重積分を考えることになる．
+
+    この積分で定義される物理量
+
+    $\displaystyle I = \int_{V}r^2 dm$　　　(4.32)
+
+    は，回転軸周りの **慣性モーメント (moment of inertia)** と呼ばれ，物体の回転運動の変化のしにくさを表す．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題4.10** 　密度が一様な円柱について，円柱の底面の中心を通り底面に垂直な回転軸周りの慣性モーメント$I$を求めよ．
+
+    ただし，円柱の質量は$M$とし，底面の半径を$R$，高さを$L$とする．
+
+    $\\\\$
+
+    解答：底面の中心に原点をとり，上向きに$z$軸をとると，円柱の体積$V$は，
+
+    $\displaystyle \begin{align} V &= \iiint_{V}dxdydz \\\\ &= \int_{0}^{L} \Bigl\lbrace \int_{-R}^{R} \Bigl( \int_{- \sqrt{R^2 - y^2}}^{\sqrt{R^2 - y^2}}dx \Bigr)dy \Bigr\rbrace dz \\\\ &= \pi R^2 L \end{align}$
+
+    で計算することができる．
+
+    これより，円柱の密度は$\rho = \frac{M}{\pi R^2 L}$と表せるので，微小要素の質量は，$dm = \frac{M}{\pi R^2 L}dxdydz$であり，慣性モーメント$I$は，
+
+    $\displaystyle \begin{align} I &= \iiint_{V}\frac{M}{\pi R^2 L}(x^2 + y^2)dxdydz \\\\ &= \frac{M}{\pi R^2 L}\int_{0}^{L} \Bigl\lbrace \int_{-R}^{R} \Bigl( \int_{- \sqrt{R^2 - y^2}}^{\sqrt{R^2 - y^2}} (x^2 + y^2)dx \Bigr) dy \Bigr\rbrace dz \\\\ &= \frac{M}{\pi R^2 L} \int_{0}^{L} \Bigl\lbrace \int_{-R}^{R} \Bigl\lbrack \frac{1}{3}x^3 + xy^2 \Bigr\rbrack_{- \sqrt{R^2 - y^2}}^{\sqrt{R^2 - y^2}}dy \Bigr\rbrace dz \\\\ &= \frac{2M}{3 \pi R^2 L}\int_{0}^{L} \Bigl\lbrace \int_{-R}^{R} \Bigl( (R^2 + 2y^2) \sqrt{R^2 - y^2} \Bigr) dy \Bigr\rbrace dz \\\\ &= \cdots = \frac{2M}{3 \pi R^2 L}\int_{0}^{L}\frac{3 \pi R^4}{4}dz &= \frac{MR^2}{2L} \int_{0}^{L}dz \\\\ &= \frac{MR^2}{2} \end{align}$
+
+    である．（省略した部分は，部分積分や置換積分を用いる．）
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    ## 平行軸の定理
+
+    上で計算してきた慣性モーメントは，剛体の重心を通るような回転軸周りの慣性モーメントであった.
+
+    一般的な剛体の回転運動は，重心周り以外の回転も考える必要がある.回転軸の位置が変わると，慣性モーメントの値も変化する.
+
+    このとき，
+    
+    「任意の軸周りの慣性モーメントは，この軸に平行で重心を通る軸周りの慣性モーメントと，全質量が重心に集まったとするときの考えている軸周りのモーメントの和に等しい」
+
+    という **平行軸の定理 (parallel axis theorem)** が成り立つ.
+    
+    剛体の質量をM，任意の軸周りの慣性モーメントを$I$, 重心を通りこの軸に平行な直線周りの慣性モーメントを$I_G$，2 つの軸の間の距離を$h$とすると，
+
+    $\displaystyle I = I_G + Mh^2$　　　(4.33)
+
+    が成り立つ．
+
+    $\\\\$
+
+    $\\\\$
+
+    **例題4.11** 　密度が一様で質量が$M$の細長い棒ABについて，以下の問いに答えよ. ただし，棒の長さを$2L$とする.
+
+    (1) 回転軸がABの中点を通り棒に垂直である場合の慣性モーメント$I_G$を求めよ.
+
+    (2) 回転軸が棒の端点 A を通り棒に垂直である場合の慣性モーメント$I$を求めよ.
+
+    (3) (2) の場合に，平行軸の定理が成り立つことを確認せよ.
+
+    $\\\\$
+
+    解答：棒に向かって$x$軸をとり，回転軸を原点とする．微小要素は$dx$であり，密度は$\frac{M}{2L}$である．
+
+    (1)$\displaystyle I_G = \int_{-L}^{L}\frac{M}{2L}x^2dx = \frac{M}{2L}\left[\frac{1}{3}x^3 \right]_{-L}^{L} = \frac{ML^2}{3}$
+
+    (2)$\displaystyle I = \int_{0}^{2L}\frac{M}{2L}x^2dx = \frac{M}{2L}\left[\frac{1}{3}x^3 \right]_{0}^{2L} = \frac{4ML^2}{3}$
+
+    (3) (1),(2)の結果より, $I = I_G + ML^2$である. 重心はABの中点であり、２つの軸の間の距離はLであるから, 平行軸の定理と一致する.
+
+    $\\\\$
+
+    $\\\\$
+
+    ( image/w1_2.PNG )
