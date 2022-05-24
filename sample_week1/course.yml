@@ -18,7 +18,7 @@ blocks:
 
     $\\\\$
 
-    ( image/w1_2.PNG )
+    ( image/w1_2.png )
 
     数列${a_n}$に対して，各項を初項から順に第n項まで加えた和
 
@@ -82,6 +82,8 @@ blocks:
 
     $\displaystyle \begin{align} (与式) &= 4 \times \sum_{l=1}^{10}l^2 + 20 \times \sum_{l=1}^{10}l + \sum_{l=1}^{10}25 \\\\ &= 4 \times \frac{1}{6} \cdot 10 \cdot (10 + 1) \cdot (2 \cdot 10 + 1) + 20 \times \frac{1}{2} \cdot 10 \cdot (10+1) + 25 \cdot 10 \\\\ &= 2890 \end{align}$
 
+    $\\\\$
+
     (2)$l = k - 3$とおくことで，初項からの和に書き直すことができる．
 
     $\displaystyle \sum_{k=4}^{6}3^{2k-7} = \sum_{l=1}^{3}3^{2(l+3)-7} = \sum_{l=1}^{3}3^{2l-1}$
@@ -116,7 +118,7 @@ blocks:
 
     **例題1.2** 　次の数列の和の極限を求めよ．
 
-    (1)$\displaystyle lim_{n \to \infty}\sum_{k=1}^{n}\frac{2k + 3}{n^2}$　　　　(2)\displaysytle $lim_{n \to \infty}\sum_{k=1}^{n}\frac{3}{4^k}$
+    (1)$\displaystyle lim_{n \to \infty}\sum_{k=1}^{n}\frac{2k + 3}{n^2}$　　　　(2)\displaystyle $lim_{n \to \infty}\sum_{k=1}^{n}\frac{3}{4^k}$
 
     $\\\\$
 
@@ -126,13 +128,15 @@ blocks:
 
     $\displaystyle \begin{align} \lim_{n \to \infty}\sum_{k=1}^{n}\frac{2k + 3}{n^2} &= \lim_{n \to \infty}\frac{1}{n^2}(2 \times \sum_{k=1}^{n}k + \sum_{k=1}^{n}3) \\\\ &= \lim_{n \to \infty}\frac{1}{n^2} \lbrace 2 \times \frac{1}{2}n(n + 1) + 3n \rbrace \\\\ &= \lim_{n \to \infty}(1 + \frac{4}{n}) \\\\ &= 1 \end{align}$
 
+    $\\\\$
+
     (2)$\displaystyle \lim_{n \to \infty}\sum_{k=1}^{n}\frac{3}{4^k} = \lim_{n \to \infty}\frac{3}{4} \times \frac{1 - (\frac{1}{4})^n}{1 - \frac{1}{4}} = \lim_{n \to \infty} \lbrace 1 - (\frac{1}{4})^n \rbrace = 1$
 
     $\\\\$
 
     $\\\\$
 
-    学習を終えたら問題に取り組もう！ [問題はこちら](flow/sample_flow)
+    学習を終えたら問題に取り組もう！ [問題はこちら](flow/week1test)
 
     $\\\\$
 
@@ -154,6 +158,8 @@ blocks:
     数列の和の極限を用いると，$a \leq x \leq b$で定義された連続関数$f(x)$が描く曲線$y=f(x)$とx軸で囲まれた面積を次のように計算することができる．
 
     $\\\\$
+
+    (image/w2_1_riemannsum.PNG)
 
     区間$[a,b]$をn等分した小区間$\Delta x = \frac{b-a}{n}$を考える．
 
@@ -483,7 +489,11 @@ blocks:
 
     逆三角関数の導関数の公式は，
 
-    $\displaystyle (\sin^-1 x)' = \frac{1}{\sqrt{1-x^2}},   (\tan^-1 x)' = \frac{1}{1+x^2},   (sec^-1 x)' = \frac{1}{|x|\sqrt{x^2 - 1}}$
+    $\displaystyle (\sin^-1 x)' = \frac{1}{\sqrt{1-x^2}}$
+    
+    $\displaystyle (\tan^-1 x)' = \frac{1}{1+x^2}$
+    
+    $\displaystyle (sec^-1 x)' = \frac{1}{|x|\sqrt{x^2 - 1}}$
 
     であったので，Cを積分定数として，以下の積分公式が得られる．
 
@@ -580,7 +590,7 @@ blocks:
 
     となる．これの両辺を移項したものを **部分積分法 (integration by parts)** の公式という．
 
-    $\int f(x)g'(x)dx = f(x)g(x) - \int f'(x)g(x)dx$
+    $\displaystyle \int f(x)g'(x)dx = f(x)g(x) - \int f'(x)g(x)dx$
 
     $\\\\$
 
@@ -864,6 +874,8 @@ blocks:
 
     微分方程式の一般解をグラフで表そうとすると，任意定数Cの分だけ無限に曲線を描くことができる．
 
+    (image/w7_1_solutioncurvegroup.PNG)
+
     このような曲線の集まりを **解曲線群(solution curve group)** という．
 
     $\\\\$
@@ -988,6 +1000,10 @@ blocks:
 
     また，$C \neq 0$のとき，解曲線は双曲線であり，$C = 0$のとき，解曲線は直線$y = \pm x$である．（ただし，x線上の点を除く）
 
+    (image/w7_2_solutioncurvegroup2.PNG)
+
+    $\\\\$
+
     (2)$y \neq -1$のとき，$y + 1$で両辺を割ると，$\frac{1}{y+1} \frac{dy}{dx} = \frac{2}{x}$．
 
     この両辺をxについて積分すると，$\int \frac{1}{y+1}dy = \int \frac{2}{x}dx$となり，$\ln |y+1| = 2 \ln|x| + \ln C = \ln Cx^2$である．
@@ -999,6 +1015,8 @@ blocks:
     この解は，A=0の場合も含めることで，先程の式にまとめることができ，Aを任意定数として一般解は$y = Ax^2 - 1$ ($x \neq 0$)と表すことができる．
 
     また，$A \neq 0$のとき，解曲線は放物線であり，$A = 0$のとき，解曲線は直線$y = -1$である． (ただし，点(0,1)を除く)
+
+    (image/w7_3_solutioncurvegroup3.PNG)
 
     $\\\\$
 
@@ -1218,9 +1236,39 @@ blocks:
 
     ## 曲線の長さ
 
-    区間 [ a , b ] で滑らかな関数$y=f(x)$に対し，この区間 [ a , b ] における曲線 $y=f(x)$の長さ$L$ は
+    座標平面状で曲線$y=f(x)$が与えられたとき，区間 [ a , b ] を
 
-    $\displaystyle L = \int_{a}^{b} \sqrt{1 + \lbrace f'(x) \rbrace^2 } dx$
+    $a = x_0 < x_1 < \cdots < x_n = b$
+
+    と分割し，曲線上に点$P(x_i , f(x_i))$をとる．
+
+    (image/w15_1_lengthofcurve.PNG)
+
+    このとき，
+
+    $\displaystyle \begin{cases} \Delta x_i = x_i - x_{i-1} \\\\ \Delta y_i = f(x_i) - f(x_{i-1}) \end{cases}$　$(i = 1, \cdots , n)$
+
+    とおくと，三平方の定理から，線分(line seqment)$\Delta s_i = P_{i-1} P_i$　$(i = 1, \cdots , n)$の長さは，
+
+    $\displaystyle \Delta s_i = \sqrt{(\Delta x_i)^2 + (\Delta y_i)^2} = \sqrt{1 + \Bigl( \frac{\Delta y_i}{\Delta x_i} \Bigr)^2} \cdot \Delta x_i$　　(3.2)
+
+    となる．
+
+    (image/w15_2_lengthofcurve.PNG)
+
+    $\\\\$
+
+    この線分を順につないだ折れ線(polygonal line)$P_0 P_1 \cdots P_n$の長さを$L_n$と表すと，
+
+    $\displaystyle L_n = \sum_{i=1}^{n}\Delta s_i = \sum_{i=1}^{n} \sqrt{1 + \Bigl( \frac{\Delta y_i}{\Delta x_i} \Bigr)^2} \cdot \Delta x_i$　　(3.3)
+
+    である．そして，曲線を限りなく細かく分割して（分割数nを増やして），$\lim_{n \to \infty}L_n$が一定値$L$に収束するとき，
+
+    この$L$を **曲線の長さ (length of curve)** という．これも面積と同様に定積分である．
+
+    すなわち，区間 [ a , b ] で滑らかな関数$y=f(x)$に対し，この区間 [ a , b ] における曲線 $y=f(x)$の長さ$L$ は
+
+    $\displaystyle L = \int_{a}^{b} \sqrt{1 + \lbrace f'(x) \rbrace^2 } dx$　　(3.4)
 
     である.
 
@@ -1259,11 +1307,13 @@ blocks:
 
     ## 仕事と仕事率
 
+    (image/w16_1_work.PNG)
+
     物体に一定の大きさの力 $F [N]$ を加え，力の向きに距離$ d [m] $だけ物体を移動させたとき，
 
     「力は物体に対して仕事をした」といい，力のした **仕事 (work)** は，
 
-    $\displaystyle W = F・d$                                                        (3.10)
+    $\displaystyle W = F・d$　　(3.10)
 
     と定義される. 
     
@@ -1282,6 +1332,8 @@ blocks:
     と定められている.
 
     $\\\\$
+
+    (image/w16_2_work.PNG)
     
     力 $\Bbb F$ のはたらく方向と物体の変位の方向のなす角を$\theta$とすると, 物体の変位 $\mathbb s$ に対して有効に作用した力の大きさは，
     
@@ -1656,6 +1708,14 @@ blocks:
 
     ## 図形の面積
 
+    (image/w19_1_area.PNG)
+
+    例えば上図の面積を考える場合，$x=c$で積分を分け，区間[ c , b ]の積分の符号を変えたもの
+
+    $\displaystyle \int_{a}^{c}f(x)dx - \int_{c}^{d}f(x)dx$
+
+    が，全体の面積を表す．
+
     曲線y = f(x)がx軸との上下関係を何度も変える場合も, その都度積分を分け, 曲線がx軸よりも下側にあるときの積分の符号を変えればよい. 
     
     したがって求める面積は, 
@@ -1674,13 +1734,23 @@ blocks:
 
     解答：
 
-    (1)関数$y = x^2 -1$のグラフは, 区間[0, 1)でx軸より下側に,区間(1, 2]でx軸より上側にある.
+    (1)
+
+    (image/w19_2_area.PNG)
+    
+    関数$y = x^2 -1$のグラフは, 区間[0, 1)でx軸より下側に,区間(1, 2]でx軸より上側にある.
 
     したがって，求める面積は,
 
     $\displaystyle \begin{align} \int_{0}^{2}|x^2 - 1|dx &= \int_{0}^{1} \lbrace - (x^2 - 1) \rbrace dx + \int_{1}^{2}(x^2 - 1)dx \\\\ &= \Bigl\lbrack - \frac{1}{3}x^3 + x \Bigr\rbrack_{0}^{1} + \Bigl\lbrack \frac{1}{3}x^3 - x \Bigr\rbrack_{1}^{2} \\\\ &= \Bigl\lbrace \frac{2}{3} - 0 \Bigr\rbrace + \Bigl\lbrace \frac{2}{3} - \Bigl( - \frac{2}{3} \Bigr) \Bigr\rbrace \\\\ &= 2 \end{align}$
 
-    (2)関数$y = sin\pi x$のグラフは, 区間[0, 1) で x 軸より上側に，区間 (1, 2] で x 軸 より下側にある.
+    $\\\\$
+
+    (2)
+    
+    (image/w19_3_area.PNG)
+    
+    関数$y = sin\pi x$のグラフは, 区間[0, 1) で x 軸より上側に，区間 (1, 2] で x 軸 より下側にある.
     
     従って，求める面積は，
 
@@ -1695,6 +1765,8 @@ blocks:
     $\\\\$
 
     解答：
+
+    (image/w19_4_area.PNG)
 
     区間$[0, \frac{1}{4}], [\frac{5}{4}, 2]$で$cos\pi x \geq sin\pi x$, 区間$[\frac{1}{4}, \frac{5}{4}]$で$cos\pi x \leq sin\pi x$である.
 
@@ -1712,7 +1784,9 @@ blocks:
     
     ## 薄板の重心
 
-    xy平面上に薄板 (thin board; lamina) があるとする(板の厚みは無視できるものとする).薄板の面積Sは
+    (image/w19_5_areadensity.PNG)
+
+    上図のように，xy平面上に薄板 (thin board; lamina) があるとする(板の厚みは無視できるものとする).薄板の面積Sは
 
     $\displaystyle S = \int_{a}^{b} \lbrace f_1(x)-f_2(x) \rbrace dx$　　　(4.5)
 
@@ -1744,6 +1818,8 @@ blocks:
 
     解答：
 
+    (image/w19_6_areadensity.PNG)
+
     放物線とx軸との交点のx座標は$ x = \pm 1$であるから, 薄板の重心のx座標$x_G$は,
     
     $\displaystyle x_G = \frac{\int_{0}^{1}x(1-x^2)dx}{\int_{0}^{1}(1-x^2)dx} = \frac{\Bigl\lbrack \frac{1}{2}x^2-\frac{1}{4}x^4 \Bigr\rbrack_{0}^{1}}{\Bigl\lbrack x - \frac{1}{3}x^3\Bigr\rbrack_{0}^{1}} = \frac{\frac{1}{4}}{\frac{x}-\frac{2}{3}} = \frac{3}{8}$
@@ -1751,6 +1827,12 @@ blocks:
     $\\\\$
 
     $\\\\$
+
+    $\\\\$
+
+    $\\\\$
+
+    (image/w19_7_areadensity.PNG)
 
     重心の$y$座標$y_G$についても同様にして，
 
@@ -1769,6 +1851,8 @@ blocks:
     $\\\\$
 
     解答：
+
+    (image/w19_8_areadensity.PNG)
 
     放物線とy軸との交点のy座標はy = 1であり,放物線は$x=\sqrt {1-y}$と表せるから, 薄板の重心のy座標$y_G$は,
 
@@ -1797,9 +1881,13 @@ blocks:
 
     ### 重積分の定義
 
+    (image/w20_1_doubleint.PNG)
+
     **重積分 (double integral)** とは，2 変数 x と y の値の動き得る領域 (domain)D を xy 平面内に指定し，これと曲面z = f(x, y)とで囲まれる（挟まれる）部分の符号付き体積(signed volume) を指し，以下で定義される．
 
     $\displaystyle \iint_{D}f(x,y)dxdy = \lim_{n \to \infty} \lim_{m \to \infty} \sum_{i=1}^{n}\sum_{j=1}^{m} f(p_i , q_j) \Delta x_i \Delta y_j$　　　(4.10)
+
+    (image/w20_2_doubleint.PNG)
 
     右辺の和は，$xy$平面内の領域$D$を$x$方向に$n$分割，$y$方向に$m$分割した時の，小領域$D_{ij}$の面積$\Delta x_i \Delta y_j$と，領域$D_{ij}$内の任意の点$(p_i , q_j)$における高さ$f(p_i , q_j)$の積からなり，全ての小領域に対する直方体の符号付体積の和の極限である．
 
@@ -1808,6 +1896,8 @@ blocks:
     $\\\\$
 
     $\\\\$
+
+    (image/w20_3_doubleint.PNG)
 
     また, 極限の順序は任意に選ばれるので, $m \rightarrow \infty$ (すなわち, $\delta y \rightarrow 0$)の極限を先に考えることは, yについての積分を先に実行することと対応し, 重積分は
 
@@ -1831,6 +1921,8 @@ blocks:
 
     解答：積分領域は$xy$平面の領域$D$を満たす長方形である．
 
+    (image/w20_4_doubleint.PNG)
+
     $\displaystyle \begin{align} \iint_{D}6x^2 ydxdy &= \int_{-1}^{1} \Bigl\lbrace \int_{0}^{1}6x^2 ydy \Bigr\rbrace dx \\\\ &= \int_{-1}^{1} \Bigl\lbrack 3x^2 y^2 \Bigr\rbrack_{0}^{1}dx \\\\ &= \int_{-1}^{1}3x^2 dx \\\\ &= \bigl\lbrack x^3 \bigr\rbrack_{-1}^{1} \\\\ &= 2 \end{align}$
 
     ※別解：積分の順序を逆にして計算しても，同じ結果となる．
@@ -1851,6 +1943,8 @@ blocks:
 
     解答：積分領域は$y=x^2$ と$y=x$で囲まれた，かつ$0 \leq x \leq 1$を満たす面積である．
 
+    (image/w20_5_doubleint.PNG)
+
     $\displaystyle \begin{align} \iint_{D}6x^2 ydxdy &= \int_{0}^{1} \Bigl\lbrace \int_{x^2}^{x}6x^2 ydy \Bigr\rbrace dx \\\\ &= \int_[0]^{1} \Bigl\lbrack 3x^2 y^2 \Bigr\rbrack_{x^2}^{x}dx \\\\ &= \int_{0}^{1}3(x^4 - x^6)dx \\\\ &= 3 \Bigl\lbrack \frac{1}{5}x^5 - \frac{1}{7}x^7 \Bigr\rbrack_{0}^{1} \\\\ &= \frac{6}{35} \end{align}$
 
     ※別解：積分の順序を逆にした場合，$0 \leq y \leq 1$の範囲で$y$を固定した場合に$x$の値の取り得る範囲は，$y \leq x \leq \sqrt{y}$と表されることに注意する．
@@ -1866,6 +1960,8 @@ blocks:
     $\\\\$
 
     ## 極座標による重積分
+
+    (image/w20_6_doubleint.PNG)
 
     積分領域$D$の形状あるいは被積分関数によっては，$xy$座標で累次積分を行うよりも **極座標 (polar coordimate)** を用いるほうが重積分の計算が容易になる場合がある．
 
@@ -1896,6 +1992,8 @@ blocks:
 
     #立体の体積と重心
 
+    (image/w22_1_moment.PNG)
+
     $xyz$座標空間内において，$-z$方向を鉛直下向きにとると，重力は$\Bbb F = (0,0,-mg)$と表せ，位置$mathbb r = (x,y,z)$における力のモーメントは，
 
     $\displaystyle \mathbb r \times \Bbb F = (-mgy,mgx,0)$　　　(4.16)
@@ -1911,6 +2009,8 @@ blocks:
     $\\\\$
 
     ## 立体の体積と重心
+
+    (image/w22_2_moment.PNG)
 
     $xy$平面内の領域$D$とその上の2変数関数$z=f(x, y)$で物体の形状が表現されているとき，物体の密度が一様であるとすると，その質量$M$は
 
@@ -1930,6 +2030,10 @@ blocks:
 
     によって求められる．
 
+    $\\\\$
+
+    (image/w22_3_moment.PNG)
+
     重心の$y$座標についても同様に考えて，$y$座標$y_G$は，
 
     $\displaystyle \begin{align} y_G &= \frac{\rho \int_{c}^{d}yT(y)dy}{\rho \iint_{D}f(x,y)dxdy} \\\\ &= \frac{\iint_{D} y \cdot f(x, y)dxdy}{\iint_{D} f(x, y)dxdy} \end{align}$　　　(4.21)
@@ -1948,7 +2052,11 @@ blocks:
 
     $\\\\$
 
-    解答：$0 \leq x \leq 1, 0 \leq y \leq 1$の範囲の体積は，
+    解答：
+
+    (image/w22_4_moment.PNG)
+    
+    $0 \leq x \leq 1, 0 \leq y \leq 1$の範囲の体積は，
 
     $\displaystyle \begin{align} V = \int_{0}^{1} \Bigl\lbrace \int_{0}^{1}xydy \Bigr\rbrace dx \\\\ &= \int\{0}^{1} \Bigl\lbrack \frac{1}{2}xy^2 \Bigr\rbrack_{0}^{1}dx \\\\ &= \int_{0}^{1}\frac{1}{2}xdx \\\\ &= \Bigl\lbrack \frac{1}{4}x^2 \Bigr\rbrack_{0}^{1} \\\\ &= \frac{1}{4} \end{align}$
 
@@ -1991,6 +2099,8 @@ blocks:
     **例題4.8** 　$x \geq 0$の範囲で，曲線$y = \sqrt{1-x}$と$x$軸とで囲まれる部分を$x$軸の周りに回転して得られる回転体の重心の$x$座標$x_G$を求めよ．
 
     ただし，立体の密度は一様とする．
+
+    (image/w22_5_moment.PNG)
 
     $\\\\$
 
@@ -2054,6 +2164,8 @@ blocks:
 
     ただし，円柱の質量は$M$とし，底面の半径を$R$，高さを$L$とする．
 
+    (image/w23_1_moment.PNG)
+
     $\\\\$
 
     解答：底面の中心に原点をとり，上向きに$z$軸をとると，円柱の体積$V$は，
@@ -2110,6 +2222,8 @@ blocks:
 
     解答：棒に向かって$x$軸をとり，回転軸を原点とする．微小要素は$dx$であり，密度は$\frac{M}{2L}$である．
 
+    (image/w23_2_moment.PNG)  (image/w23_3_moment.PNG)
+
     (1)$\displaystyle I_G = \int_{-L}^{L}\frac{M}{2L}x^2dx = \frac{M}{2L}\left[\frac{1}{3}x^3 \right]_{-L}^{L} = \frac{ML^2}{3}$
 
     (2)$\displaystyle I = \int_{0}^{2L}\frac{M}{2L}x^2dx = \frac{M}{2L}\left[\frac{1}{3}x^3 \right]_{0}^{2L} = \frac{4ML^2}{3}$
@@ -2119,5 +2233,3 @@ blocks:
     $\\\\$
 
     $\\\\$
-
-    ( image/w1_2.PNG )
