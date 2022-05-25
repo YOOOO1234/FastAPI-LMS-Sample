@@ -1,0 +1,15 @@
+title: 問題２
+page_type: "SingleTextQuestion"
+content: |
+
+    ### Q2 数列の和の公式を用いて計算し、空白[ア]に入る適切な値を求めよ。
+
+    $\displaystyle \sum_{k=1}^{n}(2k - 1) = n^{[ア]}$
+
+correct_answer:
+-
+  type: int
+  value: 2
+-
+  type: str
+  value: "2"

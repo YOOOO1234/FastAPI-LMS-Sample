@@ -1,0 +1,38 @@
+title: 問題３
+page_type: "MultipleTextQuestion"
+content: |
+
+    ### Q3 数列の和の公式を用いて計算し、空白[イ][ウ][エ]に入る適切な値を求めよ。
+
+    $\displaystyle \sum_{k=1}^{n}k(k + 1)(k - 2) = \frac{1}{[イ]}n(n + 1)(n + 2)([ウ]n - [エ])$
+
+answer_column: |
+    [イ]:  [[blank_1]] [ウ]: [[blank_2]] [エ]: [[blank_3]]
+correct_answers:
+-
+  blank_id: "blank_1"
+  answers:
+  -
+    type: int
+    value: 12
+  -
+    type: str
+    value: "12"
+-
+  blank_id: "blank_2"
+  answers:
+  -
+    type: int
+    value: 3
+  -
+    type: str
+    value: "3"
+-
+  blank_id: "blank_3"
+  answers:
+  -
+    type: int
+    value: 7
+  -
+    type: str
+    value: "7"
