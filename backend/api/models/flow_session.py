@@ -1,6 +1,6 @@
 
 # フローセッション(フローを利用する一連の流れ)を示すテーブル群
-from sqlalchemy import Column, Integer, ForeignKey, Boolean, DATETIME, TEXT, String
+from sqlalchemy import Column, Integer, Float, ForeignKey, Boolean, DATETIME, TEXT, String
 from sqlalchemy.orm import relationship
 
 from datetime import datetime
@@ -17,7 +17,8 @@ class FlowSession(Base):
     start_date_time = Column(DATETIME, comment="セッションを開始した日時.")
     finish_date_time = Column(DATETIME, comment="セッションを終了した日時.")
     is_finished = Column(Boolean, default=False, comment="セッションを終了したか否か")
-
+    flow_session_grade = Column(Float, default= 0.0, comment="正答率")
+    
 # フローセッションが持つ問題情報
 class FlowSessionFlowPage(Base):
     __tablename__ = "flow_session_flow_pages"
