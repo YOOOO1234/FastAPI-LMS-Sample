@@ -130,6 +130,7 @@ export default {
       let self = this
       axios.post(`http://localhost:8000/register_blank_answer`, params, config)
       .then(function(response){
+        //回答欄数を取得
         const md2 = self.page_content.answer_column_content
         const regexp2 = /\[\[\s*?.*?\s*?\]\]/g
         const blanks2 = [...md2.matchAll(regexp2)]
@@ -137,13 +138,6 @@ export default {
         console.log(response.data)
         console.log(blanklength)
         self.is_correct =""
-        self.cnt = 0 // 正解の数をカウント
-        for(let i=0; i< response.data.length; i++){
-          if(response.data[i]["is_correct"] == true){
-            self.cnt ++
-          }
-        }
-        console.log(self.cnt)
         console.log(response.data.length)
         // 全問正解なら正解と表示
         if(response.data.length == blanklength){
