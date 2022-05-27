@@ -18,6 +18,7 @@
             ></v-text-field>
           </v-row>
           <v-row align="end" justify="end">
+
             <v-btn @click="register_answer()" color="primary" width="100"> 回答する </v-btn>
             </v-row>
         </div>
@@ -34,6 +35,7 @@
           </v-row>
           <v-row>
             解説：数列の和の公式を確認しよう！！
+
           </v-row>
         </div>
       </v-container>
@@ -67,15 +69,6 @@ export default {
    window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
   },
   created: function() {
-    window.MathJax.Hub.Config({
-        tex2jax:{
-          extensions: ["tex2jax.js", "TeX/boldsymbol.js"],
-          messageStyle: "none",
-          inlineMath: [['$','$'],['\\(','\\)']],
-          displayMath: [['$$','$$'],['\\[','\\]']],
-          processEscapes: true
-        }
-    });
     window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
 
     this.parse_md()
@@ -139,15 +132,8 @@ export default {
       let self = this
       axios.post(`http://localhost:8000/register_blank_answer`, params, config)
       .then(function(response){
-        //回答欄数を取得
-        const md2 = self.page_content.answer_column_content
-        const regexp2 = /\[\[\s*?.*?\s*?\]\]/g
-        const blanks2 = [...md2.matchAll(regexp2)]
-        var blanklength = blanks2.length
         console.log(response.data)
-        console.log(blanklength)
         self.is_correct =""
-        console.log(response.data.length)
         self.cnt = 0 // 正解の数をカウント
         for(let i=0; i< response.data.length; i++){
           if(response.data[i]["is_correct"] == true){
@@ -155,8 +141,9 @@ export default {
           }
         }
         console.log(self.cnt)
+        console.log(response.data.length)
         // 全問正解なら正解と表示
-        if(self.cnt == blanklength){
+        if(response.data.length==self.cnt){
           self.is_correct="正解です！！"
         }else{
           self.is_correct="不正解です"
