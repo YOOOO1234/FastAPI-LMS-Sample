@@ -184,8 +184,7 @@ async def update_to_finish_flow_session(db: AsyncSession, flow_session_id: int):
             cnt += 1
     grade = (cnt/len(is_correct_dict))*100 
     print(grade)
-    res_row = {"finish_success": True, "finish_date_time": finish_date_time, "flow_session_grade": grade}
-    response = res_row
+    response = {"finish_success": True, "finish_date_time": finish_date_time, "flow_session_grade": grade}
     print(response)
     # flow_session_gradeをdbのupdate文で保存
     update_grade: Result = await(
