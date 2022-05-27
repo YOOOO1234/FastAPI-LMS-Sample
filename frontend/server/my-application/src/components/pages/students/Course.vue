@@ -20,6 +20,7 @@
 <script>
 import axios from "axios";
 import { marked } from 'marked';
+
 export default {
   name: "Course",
   props: {
