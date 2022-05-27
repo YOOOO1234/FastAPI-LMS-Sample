@@ -1,0 +1,25 @@
+title: 問題３
+page_type: "ChoiceQuestion"
+content: |
+
+    ### Q3 数列の和の公式を用いて、次の数列の和をnの式で表せ。
+
+    $\displaystyle \sum_{k=1}^{n}k(k + 1)(k - 2)$
+
+choices:
+-
+  choice_id: "choice_1"
+  choice_text: $\frac{1}{12}n(n + 1)(n + 2)(3n - 7)$
+-
+  choice_id: "choice_2"
+  choice_text: $\frac{1}{12}n(n + 1)(n + 2)(n + 3)$
+-
+  choice_id: "choice_3"
+  choice_text: $\frac{1}{6}n(n + 1)(n + 2)(3n + 7)$
+-
+  choice_id: "choice_4"
+  choice_text: $\frac{1}{4}n(n + 1)(n + 2)(n + 3)$
+
+correct_choices:
+-
+  "choice_1"

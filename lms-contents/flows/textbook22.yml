@@ -1,0 +1,21 @@
+id: week22
+title: 
+  数理工Ⅱの確認テスト
+welcome_page_content: |
+  このフローでは、数理工Ⅱの第16週の内容を復習します。
+  - 問題数は2問です. 
+  - 採点は提出後に行われます. 
+  - このフローには何度でも挑戦することができます. 
+completion_page_content: |
+  お疲れ様です。
+  これで、数理工Ⅱの確認テストを終了します. 
+page_groups:
+- 
+  pages:
+  -
+    {{include (pages/week22_q22.1_1.yml)}}
+  -
+    {{include (pages/week22_q22.2_1.yml)}}
+  
+
+ 

@@ -1,0 +1,24 @@
+id: week1test
+title:
+  数列の和とその極限
+welcome_page_content: |
+  ここでは、数列の和とその極限に関する問題に取り組んでもらいます。
+  - 問題数は5問です。
+  - 採点は提出後に行われます。
+  - このフローは何度も挑戦することができます。
+completion_page_content: |
+  お疲れ様です。
+  これで、数列の和とその極限を終わります。
+page_groups:
+-
+  pages:
+  -
+    {{include (pages/Week1_q1_1.yml)}}
+  -
+    {{include (pages/Week1_q1_2.yml)}}
+  -
+    {{include (pages/Week1_q1_3.yml)}}
+  -
+    {{include (pages/Week1_q1_4.yml)}}
+  -
+    {{include (pages/Week1_q1_5.yml)}}
