@@ -52,6 +52,15 @@ export default {
       num_of_pages: Number
     },
   created: function() {
+    window.MathJax.Hub.Config({
+        tex2jax:{
+          extensions: ["tex2jax.js", "TeX/boldsymbol.js"],
+          messageStyle: "none",
+          inlineMath: [['$','$'],['\\(','\\)']],
+          displayMath: [['$$','$$'],['\\[','\\]']],
+          processEscapes: true
+        }
+    });
   },
   data: () => ({
   }),
