@@ -12,7 +12,7 @@
                 {{this.user_info.kind_name}} としてログイン中
               </v-row>
               <v-row justify="end">
-                <v-btn text color="grey" @click="logout()" value="POST">logout</v-btn>
+                <v-btn text color="red" @click="logout()" value="POST">logout</v-btn>
               </v-row>
             </v-container>
           </v-responsive>
