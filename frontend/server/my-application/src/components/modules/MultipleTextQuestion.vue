@@ -19,7 +19,7 @@
           </v-row>
           <v-row align="end" justify="end">
             <v-btn @click="register_answer()" color="primary" width="100"> 回答する </v-btn>
-            </v-row>
+          </v-row>
         </div>
       </v-container>
       <v-container class="pa-0 mt-4">
