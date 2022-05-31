@@ -15,7 +15,7 @@
                   </div>
               </v-row>
               <v-row justify="end">
-                <v-btn text color="red" @click="logout()" value="POST">logout</v-btn>
+                <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
               </v-row>
             </v-container>
           </v-col>

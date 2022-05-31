@@ -2,7 +2,7 @@
     <v-container v-if="isCreater">
       <v-responsive :max-width="800" class="mx-auto">
         <v-row justify="end">
-          <v-btn text color="red" @click="logout()" value="POST">logout</v-btn>
+          <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
         </v-row>
         <v-container class="mt-8">
           <h2>新規コースの登録</h2>
