@@ -15,7 +15,7 @@ class Course(Base):
     course_name = Column(String(128), nullable=False, comment="このコースの名称.")
     start_date_time = Column(DATETIME, nullable=False, comment="閲覧可能になる日時.")
     end_date_time = Column(DATETIME, nullable=False, comment="閲覧が終了する日時")
-    created = Column(DATETIME,default=datetime.datetime.now(), nullable=False)
+    created = Column(DATETIME,default=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))), nullable=False)
     created_by = Column(Integer, ForeignKey("users.id"), nullable=False)
 
 # コース解答の閲覧権限情報

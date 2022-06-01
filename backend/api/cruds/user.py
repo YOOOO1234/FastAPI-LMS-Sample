@@ -8,7 +8,7 @@ from sqlalchemy import select, insert
 from typing import List, Optional, Tuple
 from jose import JWTError, jwt
 from datetime import datetime
-
+import datetime
 from api.schemas.user import HomeUserProfile, User, UserCreate, UserWithGrant
 import api.models.user as user_model
 import api.schemas.user as user_schema
@@ -73,7 +73,7 @@ async def select_user_with_grant(db: AsyncSession,email: str) -> List[user_schem
 
 async def add_user(db: AsyncSession, username: str, email: str, password: str):
     hashed_password = get_password_hash(password)
-    new_user = UserCreate(username = username, email = email, hashed_password = hashed_password, created = datetime.now(), is_active = True)
+    new_user = UserCreate(username = username, email = email, hashed_password = hashed_password, created = datetime.now(datetime.timezone(datetime.timedelta(hours=9))), is_active = True)
     row = user_model.User(**new_user.dict())
     db.add(row)
     await db.commit()

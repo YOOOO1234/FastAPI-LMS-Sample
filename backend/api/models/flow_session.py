@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, Float, ForeignKey, Boolean, DATETIME, TE
 from sqlalchemy.orm import relationship
 
 from datetime import datetime
-
+import datetime
 from api.db import Base
 
 # フローセッション情報
@@ -37,5 +37,5 @@ class FlowSessionBlankAnswer(Base):
     flowpage_id = Column(Integer, ForeignKey("flowpages.id"), nullable=False)
     blank_id = Column(String(256), ForeignKey("blanks.id"), nullable=False)
     answer = Column(TEXT, comment="ユーザが回答した内容. ")
-    created = Column(DATETIME,default=datetime.now(), nullable=False, comment="回答日時")
+    created = Column(DATETIME,default=datetime.now(datetime.timezone(datetime.timedelta(hours=9))), nullable=False, comment="回答日時")
     

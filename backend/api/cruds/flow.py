@@ -16,7 +16,6 @@ import api.schemas.flow as flow_schema
 import api.schemas.flowpage as flowpage_schema
 
 import datetime
-import pytz
 import random
 
 async def select_flow(db: AsyncSession,flow_id: int) -> flow_schema.FlowResponse:
@@ -101,7 +100,7 @@ async def select_flow_sessions(db: AsyncSession,flow_id: int, user_id: int) -> L
     return result.all()
 
 async def insert_flow_session(db: AsyncSession, flow_id: int, user_id: int) -> flow_schema.StartFlowSessionResonse:
-    new_flow_session = flow_schema.FlowSessionCreate(user_id=user_id, flow_id=flow_id, start_date_time=datetime.datetime.now())
+    new_flow_session = flow_schema.FlowSessionCreate(user_id=user_id, flow_id=flow_id, start_date_time=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))))
     row = flow_session_model.FlowSession(**new_flow_session.dict())
     db.add(row)
     await db.commit()
@@ -158,7 +157,7 @@ async def select_flow_session_by_id(db: AsyncSession, flow_session_id: int) -> f
     return flow_session_model.FlowSession(**result.first())
 
 async def update_to_finish_flow_session(db: AsyncSession, flow_session_id: int):
-    finish_date_time = datetime.datetime.now()
+    finish_date_time = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
     result: Result = await(
         db.execute(
             update(flow_session_model.FlowSession)
@@ -394,7 +393,7 @@ async def insert_blank_answer(db: AsyncSession, answer_blank_request:List[flowpa
             flowpage_id = flowpage_id,
             blank_id = answer_blank.blank_id,
             answer = answer_blank.answer,
-            created = datetime.datetime.now()
+            created = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
         )
         # 受け取った問題IDを元に回答を登録する処理
         row = flow_session_model.FlowSessionBlankAnswer(**new_flow_session_blank_answer.dict())
@@ -475,7 +474,7 @@ async def start_new_flow_session(db: AsyncSession, flow_id: int, user_id: int):
     for flow_group in flow_groups:
         pagegroup_flowpages = await select_pagegroup_flowpages(db=db, page_group_id=flow_group.id)
         if flow_group.shuffle:
-            random.seed(datetime.datetime.now().microsecond)
+            random.seed(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).microsecond)
             random.shuffle(pagegroup_flowpages)
         
         num_of_show = len(pagegroup_flowpages) if flow_group.num_of_show == None else flow_group.num_of_show

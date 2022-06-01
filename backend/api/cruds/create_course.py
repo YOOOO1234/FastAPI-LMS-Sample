@@ -222,7 +222,7 @@ async def add_course(db: AsyncSession, register_course_request:course_schema.Reg
     return course_schema.RegisteredCourse(id=row.id, course_name=register_course_request.course_name, start_date_time=row.start_date_time, end_date_time=row.end_date_time, created= row.created)
 
 async def add_course_grant(db: AsyncSession, registered_course:course_schema.RegisteredCourse, user_with_grant:UserWithGrant):
-    new_course_grant = course_schema.CourseGrantCreate(user_id=user_with_grant.id,course_id=registered_course.id,start_date_time=datetime.datetime.now(),end_date_time=datetime.datetime.now()+datetime.timedelta(days=365),read_answer=True,update_answer=True,delete_answer=True)
+    new_course_grant = course_schema.CourseGrantCreate(user_id=user_with_grant.id,course_id=registered_course.id,start_date_time=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))),end_date_time=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))+datetime.timedelta(days=365),read_answer=True,update_answer=True,delete_answer=True)
     row = course_model.CourseGrant(**new_course_grant.dict())
     db.add(row)
     return
@@ -278,7 +278,7 @@ async def add_flow(db: AsyncSession,course_id,flow_dict):
     return row.id
 
 async def add_flow_grant(db: AsyncSession,flow_id, user_id):
-    new_flow_grant = flow_schema.FlowGrantCreate(user_id=user_id, flow_id=flow_id, start_date_time=datetime.datetime.now(), end_date_time=datetime.datetime.now()+datetime.timedelta(days=365), read_answer=True, update_answer=True, delete_answer=True)
+    new_flow_grant = flow_schema.FlowGrantCreate(user_id=user_id, flow_id=flow_id, start_date_time=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))), end_date_time=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))+datetime.timedelta(days=365), read_answer=True, update_answer=True, delete_answer=True)
     row = flow_model.FlowGrant(**new_flow_grant.dict())
     db.add(row)
     return

@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, DATETIME
 from sqlalchemy.orm import relationship
 
 from datetime import datetime
-
+import datetime
 from api.db import Base
 
 # ページ情報
@@ -14,7 +14,7 @@ class FlowPage(Base):
     id = Column(Integer, primary_key=True, index=True)
     content_id = Column(Integer, ForeignKey("contents.id"), nullable=False)
     title = Column(String(128), nullable=False, comment="ページのタイトル.")
-    created = Column(DATETIME,default=datetime.now(), nullable=False)
+    created = Column(DATETIME,default=datetime.now(datetime.timezone(datetime.timedelta(hours=9))), nullable=False)
     page_type = Column(String(128), nullable=False, comment="ページのタイプ")
 
 # 解答機能を持たないページ
