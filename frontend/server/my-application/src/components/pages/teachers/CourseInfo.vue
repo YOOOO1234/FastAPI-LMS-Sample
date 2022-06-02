@@ -45,7 +45,61 @@
         </v-row>
         <v-divider class="mt-0"></v-divider>
         <v-row class="mt-5" >
-          
+          <v-responsive :max-width="1000" class="mx-auto">
+            <v-container>
+              <v-row>
+                <v-subheader :class="['text-h5']">コース情報</v-subheader>
+              </v-row>
+              <v-row>
+                <v-col class="pl-0 pb-0">
+                  <v-subheader :class="['subtitle-1']">年度</v-subheader>
+                    <v-col class="pl-4 pb-0">
+                      <v-banner
+                        color="grey lighten-4"
+                        elevation="3"
+                        tile
+                      >2022年度</v-banner>
+                    </v-col>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col class="pl-0 pb-0">
+                  <v-subheader :class="['subtitle-1']">学期</v-subheader>
+                    <v-col class="pl-4 pb-0">
+                      <v-banner
+                        color="grey lighten-4"
+                        elevation="3"
+                        tile
+                      >後学期</v-banner>
+                    </v-col>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col class="pl-0 pb-0">
+                  <v-subheader :class="['subtitle-1']">科目名</v-subheader>
+                    <v-col class="pl-4 pb-0">
+                      <v-banner
+                        color="grey lighten-4"
+                        elevation="3"
+                        tile
+                      >工学のための数理工Ⅱ</v-banner>
+                    </v-col>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col class="pl-0 pb-0">
+                  <v-subheader :class="['subtitle-1']"> 週</v-subheader>
+                    <v-col class="pl-4 pb-0">
+                      <v-banner
+                        color="grey lighten-4"
+                        elevation="3"
+                        tile
+                      >第15週</v-banner>
+                    </v-col>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-responsive>
         </v-row>
         
       </v-container>
