@@ -51,6 +51,10 @@ async def select_course_info(db: AsyncSession, course_id:int, user: user_schema.
             select(
                 course_model.Course.course_name,
                 course_model.Course.created,
+                course_model.Course.course_year,
+                course_model.Course.course_term,
+                course_model.Course.subject_name,
+                course_model.Course.course_week,
                 course_model.Course.start_date_time,
                 course_model.Course.end_date_time,
             ).where(course_model.Course.id == course_id)
@@ -110,7 +114,7 @@ async def select_course(db: AsyncSession,course_id: int) -> course_schema.Course
             order = block_d["order"],
             content = block_d["content"],
             rule =  rule_response
-        )
+            )
         ]
     for flow_d in flow_dict_list:
         flow_link_list += [

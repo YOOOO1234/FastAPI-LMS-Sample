@@ -1,10 +1,10 @@
 <template>
     <v-container v-if="isCreater">
       <v-responsive :max-width="800" class="mx-auto">
-        <v-row justify="end">
-          <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
-        </v-row>
         <v-container class="mt-8">
+          <v-row justify="end">
+            <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
+          </v-row>
           <h2>新規コースの登録</h2>
           <div :class="`rounded-lg`" class="pa-6 mt-6 red lighten-5 text-no-wrap" v-if="error_msgs.length>0">
             <v-row>
@@ -20,17 +20,17 @@
                 <v-text-field :rules="titleRules" label="コース名" v-model="courseName" background-color="white" filled ></v-text-field>
               </v-row>
               <v-row align="center" justify="space-around" >
-                <v-text-field :rules="yearRules" label="年度" v-model="courseName" background-color="white" filled ></v-text-field>
+                <v-text-field :rules="yearRules" label="年度" v-model="courseYear" background-color="white" filled ></v-text-field>
               </v-row>
               <v-row align="center" justify="space-around" >
-                <v-text-field :rules="termRules" label="学期" v-model="courseName" background-color="white" filled ></v-text-field>
+                <v-text-field :rules="termRules" label="学期" v-model="courseTerm" background-color="white" filled ></v-text-field>
               </v-row>
               <v-row align="center" justify="space-around" >
-                <v-text-field :rules="subjectsRules" label="科目名" v-model="courseName" background-color="white" filled ></v-text-field>
+                <v-text-field :rules="subjectsRules" label="科目名" v-model="subjectName" background-color="white" filled ></v-text-field>
               </v-row>
               <v-row align="center" justify="space-around" >
-                <v-text-field :rules="weekRules" label="第○週" v-model="courseName" background-color="white" filled ></v-text-field>
-              </v-row> 
+                <v-text-field :rules="weekRules" label="週" v-model="courseWeek" background-color="white" filled ></v-text-field>
+              </v-row>                            
               <v-row align="center" justify="space-around" >
                   <v-text-field :rules="startDateTimeRules" label="開始日時 ex. 2022-02-04 13:30:00" v-model="startDateTime" background-color="white" filled error-count="10"></v-text-field>
                   <!-- <v-text-field :rules="startTimeRules" label="start time   ex. 23:30" v-model="startTime" background-color="white" filled></v-text-field> -->
@@ -59,7 +59,7 @@
 import axios from "axios";
 
 export default {
-  name: "Home",
+  name: "RegisterCoruse",
   created: function() {
     let self = this
     axios.get("http://localhost:8000/users/creater", {withCredentials: true})
@@ -289,33 +289,27 @@ export default {
     files: [],
     error_msgs: [],
     courseName: "",
-    year: "",
-    term: "",
+    courseYear: "",
+    courseTerm: "",
     subjectName: "",
-    week: "",
+    courseWeek: "",
     startDateTime: "",
     endDateTime: "",
   }),
   methods:{
     logout: function(){
-      let self = this
-      axios.get("http://localhost:8000/home_profile", {withCredentials: true})
-      .then(function(response){
-        if(response.data.is_active){
-          self.go_login_page()
+        try{
+          const res = axios.post("http://localhost:8000/logout",{},{withCredentials: true})
+          console.log(res.data)
+          this.moveToLogin()
+        }catch(error){
+          const {status,statusText} = error.response;
+          if(status == 401)
+            this.moveToLogin()
+          console.log(status,statusText)
         }
-      }).catch(
-        function(error){
-          console.log(error)
-          if(error.response.status == 401){
-            self.$router.push({name:'Login'})
-          }else{
-            console.log(error.response)
-          }
-        }
-      )
-    },
-    go_login_page: function(){
+      },
+    moveToLogin: function(){
       this.$router.push({name:'Login'})
     },
     move_to_course_info(course_id){
@@ -324,7 +318,7 @@ export default {
     register_course(){
       const is_validation_success = this.validate_form()
       if(is_validation_success){
-          const params = {"course_name":this.courseName,"start_date_time": "2022-2-10T00:00:00","end_date_time":"2022-05-10T23:59:59","course_files": this.files}
+          const params = {"course_name":this.courseName,"course_year":this.courseYear,"course_term":this.courseTerm,"subject_name":this.subjectName,"course_week":this.courseWeek ,"start_date_time": "2022-2-10T00:00:00","end_date_time":"2022-05-10T23:59:59","course_files": this.files}
           console.log(JSON.stringify(params));
           const config = {
             headers: {

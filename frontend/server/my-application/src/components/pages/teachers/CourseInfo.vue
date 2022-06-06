@@ -60,7 +60,7 @@
                         color="grey lighten-4"
                         elevation="3"
                         tile
-                      >2022年度</v-banner>
+                      >{{course_year}}</v-banner>
                     </v-col>
                 </v-col>
               </v-row>
@@ -72,7 +72,7 @@
                         color="grey lighten-4"
                         elevation="3"
                         tile
-                      >後学期</v-banner>
+                      >{{course_term}}</v-banner>          
                     </v-col>
                 </v-col>
               </v-row>
@@ -84,7 +84,7 @@
                         color="grey lighten-4"
                         elevation="3"
                         tile
-                      >工学のための数理工Ⅱ</v-banner>
+                      >{{subject_name}}</v-banner>
                     </v-col>
                 </v-col>
               </v-row>
@@ -96,7 +96,7 @@
                         color="grey lighten-4"
                         elevation="3"
                         tile
-                      >第15週</v-banner>
+                      >{{course_week}}</v-banner>
                     </v-col>
                 </v-col>
               </v-row>
@@ -144,6 +144,10 @@ export default {
     user_info : {},
     is_create : false,
     course: {},
+    course_year: "",
+    course_term: "",
+    subject_name: "",
+    course_week: "",
   }),
   methods:{
     logout: function(){
@@ -179,6 +183,10 @@ export default {
         .then(function(response){
           console.log(response.data)
           self.course = response.data
+          self.course_year = self.course.course_year
+          self.course_term = self.course.course_term
+          self.subject_name = self.course.subject_name
+          self.course_week = self.course.course_week
         }).catch(function(error){
           console.log(error.response)
         }).catch(function(error)  {
