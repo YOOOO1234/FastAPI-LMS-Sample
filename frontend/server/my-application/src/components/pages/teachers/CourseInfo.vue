@@ -48,7 +48,9 @@
           <v-responsive :max-width="1000" class="mx-auto">
             <v-container>
               <v-row>
-                <v-subheader :class="['text-h5']">コース情報</v-subheader>
+                <v-col>
+                  <v-subheader :class="['text-h5']">コース情報</v-subheader>
+                </v-col>
               </v-row>
               <v-row>
                 <v-col class="pl-0 pb-0">

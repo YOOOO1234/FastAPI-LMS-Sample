@@ -20,6 +20,18 @@
                 <v-text-field :rules="titleRules" label="コース名" v-model="courseName" background-color="white" filled ></v-text-field>
               </v-row>
               <v-row align="center" justify="space-around" >
+                <v-text-field :rules="yearRules" label="年度" v-model="courseName" background-color="white" filled ></v-text-field>
+              </v-row>
+              <v-row align="center" justify="space-around" >
+                <v-text-field :rules="termRules" label="学期" v-model="courseName" background-color="white" filled ></v-text-field>
+              </v-row>
+              <v-row align="center" justify="space-around" >
+                <v-text-field :rules="subjectsRules" label="科目名" v-model="courseName" background-color="white" filled ></v-text-field>
+              </v-row>
+              <v-row align="center" justify="space-around" >
+                <v-text-field :rules="weekRules" label="第○週" v-model="courseName" background-color="white" filled ></v-text-field>
+              </v-row> 
+              <v-row align="center" justify="space-around" >
                   <v-text-field :rules="startDateTimeRules" label="開始日時 ex. 2022-02-04 13:30:00" v-model="startDateTime" background-color="white" filled error-count="10"></v-text-field>
                   <!-- <v-text-field :rules="startTimeRules" label="start time   ex. 23:30" v-model="startTime" background-color="white" filled></v-text-field> -->
               </v-row>
@@ -69,6 +81,18 @@ export default {
     isCreater: false,
     titleRules:[
       v => !!v || 'コース名は必須です.',
+    ],
+    yearRules:[
+      v => !!v || '年度は必須です.',
+    ],
+    termRules:[
+      v => !!v || '学期は必須です.',
+    ],
+    subjectsRules:[
+      v => !!v || '科目名は必須です.',
+    ],
+    weekRules:[
+      v => !!v || '週は必須です.',
     ],
     startDateTimeRules:[
       v => !!v || '開始日時は必須です.',
@@ -265,6 +289,10 @@ export default {
     files: [],
     error_msgs: [],
     courseName: "",
+    year: "",
+    term: "",
+    subjectName: "",
+    week: "",
     startDateTime: "",
     endDateTime: "",
   }),
