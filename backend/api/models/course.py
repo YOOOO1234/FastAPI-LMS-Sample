@@ -13,6 +13,10 @@ class Course(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     course_name = Column(String(128), nullable=False, comment="このコースの名称.")
+    course_year = Column(String(10), nullable=False, comment="このコースの開講年度.")
+    course_term = Column(String(10), nullable=False, comment="このコースの開講学期.")
+    subject_name = Column(String(128), nullable=False, comment="このコースの科目名")
+    course_week = Column(String(10), nullable=False, comment="このコースの開講週")
     start_date_time = Column(DATETIME, nullable=False, comment="閲覧可能になる日時.")
     end_date_time = Column(DATETIME, nullable=False, comment="閲覧が終了する日時")
     created = Column(DATETIME,default=datetime.datetime.now(), nullable=False)

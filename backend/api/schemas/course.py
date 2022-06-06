@@ -8,6 +8,10 @@ from datetime import datetime
 class RegisteredCourse(BaseModel):
     id: int
     course_name: str
+    course_year: str
+    course_term: str
+    subject_name: str
+    course_week: str
     start_date_time: datetime
     end_date_time: datetime
     created: datetime
@@ -24,6 +28,10 @@ class CourseFiles(BaseModel):
 
 class RegisterCourseRequest(BaseModel):
     course_name: str
+    course_year: str
+    course_term: str
+    subject_name: str
+    course_week: str
     start_date_time: datetime
     end_date_time: datetime
     course_files: List[CourseFiles]
@@ -61,6 +69,10 @@ class RegisterTakingCourseResponse(BaseModel):
 ## insert用のスキーマ群
 class CourseCreate(BaseModel):
     course_name: str
+    course_year: str
+    course_term: str
+    subject_name: str
+    course_week: str
     start_date_time: datetime
     end_date_time:datetime
     created_by: int
@@ -95,6 +107,10 @@ class TakingCourseResponse(BaseModel):
 class CourseInfoResponse(BaseModel):
     course_name: str
     created: datetime
+    course_year: str
+    course_term: str
+    subject_name: str
+    course_week: str    
     start_date_time: datetime
     end_date_time: datetime
 

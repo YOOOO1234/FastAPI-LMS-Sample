@@ -45,7 +45,63 @@
         </v-row>
         <v-divider class="mt-0"></v-divider>
         <v-row class="mt-5" >
-          
+          <v-responsive :max-width="1000" class="mx-auto">
+            <v-container>
+              <v-row>
+                <v-col>
+                  <v-subheader :class="['text-h5']">コース情報</v-subheader>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col class="pl-0 pb-0">
+                  <v-subheader :class="['subtitle-1']">年度</v-subheader>
+                    <v-col class="pl-4 pb-0">
+                      <v-banner
+                        color="grey lighten-4"
+                        elevation="3"
+                        tile
+                      >{{course_year}}</v-banner>
+                    </v-col>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col class="pl-0 pb-0">
+                  <v-subheader :class="['subtitle-1']">学期</v-subheader>
+                    <v-col class="pl-4 pb-0">
+                      <v-banner
+                        color="grey lighten-4"
+                        elevation="3"
+                        tile
+                      >{{course_term}}</v-banner>          
+                    </v-col>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col class="pl-0 pb-0">
+                  <v-subheader :class="['subtitle-1']">科目名</v-subheader>
+                    <v-col class="pl-4 pb-0">
+                      <v-banner
+                        color="grey lighten-4"
+                        elevation="3"
+                        tile
+                      >{{subject_name}}</v-banner>
+                    </v-col>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col class="pl-0 pb-0">
+                  <v-subheader :class="['subtitle-1']"> 週</v-subheader>
+                    <v-col class="pl-4 pb-0">
+                      <v-banner
+                        color="grey lighten-4"
+                        elevation="3"
+                        tile
+                      >{{course_week}}</v-banner>
+                    </v-col>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-responsive>
         </v-row>
         
       </v-container>
@@ -88,6 +144,10 @@ export default {
     user_info : {},
     is_create : false,
     course: {},
+    course_year: "",
+    course_term: "",
+    subject_name: "",
+    course_week: "",
   }),
   methods:{
     logout: function(){
@@ -123,6 +183,10 @@ export default {
         .then(function(response){
           console.log(response.data)
           self.course = response.data
+          self.course_year = self.course.course_year
+          self.course_term = self.course.course_term
+          self.subject_name = self.course.subject_name
+          self.course_week = self.course.course_week
         }).catch(function(error){
           console.log(error.response)
         }).catch(function(error)  {

@@ -214,12 +214,12 @@ class YamlFormatter():
         return {"success":False, "error_msg":error_msg}
 
 async def add_course(db: AsyncSession, register_course_request:course_schema.RegisterCourseRequest, user_with_grant: UserWithGrant):
-    new_course = course_schema.CourseCreate(course_name=register_course_request.course_name,start_date_time=register_course_request.start_date_time,end_date_time=register_course_request.end_date_time, created_by=user_with_grant.id)
+    new_course = course_schema.CourseCreate(course_name=register_course_request.course_name,course_year=register_course_request.course_year,course_term=register_course_request.course_term,subject_name=register_course_request.subject_name,course_week=register_course_request.course_week,start_date_time=register_course_request.start_date_time,end_date_time=register_course_request.end_date_time, created_by=user_with_grant.id)
     row = course_model.Course(**new_course.dict())
     db.add(row)
     await db.flush()
     await db.refresh(row)
-    return course_schema.RegisteredCourse(id=row.id, course_name=register_course_request.course_name, start_date_time=row.start_date_time, end_date_time=row.end_date_time, created= row.created)
+    return course_schema.RegisteredCourse(id=row.id, course_name=register_course_request.course_name,course_year=register_course_request.course_year,course_term=register_course_request.course_term,subject_name=register_course_request.subject_name,course_week=register_course_request.course_week,start_date_time=row.start_date_time, end_date_time=row.end_date_time, created= row.created)
 
 async def add_course_grant(db: AsyncSession, registered_course:course_schema.RegisteredCourse, user_with_grant:UserWithGrant):
     new_course_grant = course_schema.CourseGrantCreate(user_id=user_with_grant.id,course_id=registered_course.id,start_date_time=datetime.datetime.now(),end_date_time=datetime.datetime.now()+datetime.timedelta(days=365),read_answer=True,update_answer=True,delete_answer=True)
@@ -468,7 +468,7 @@ async def add_course_file(db: AsyncSession, user_with_grant:UserWithGrant, regis
             page_group_id = await add_page_groups(db=db, flow_id=flow_id, order=page_group_i, page_group=page_group)
             print(f"page_group_id: {page_group_id}")
 
-            # ページの追加
+        # ページの追加
             for page_i, page in enumerate(page_group["pages"]):
                 flowpage_id = await add_flow_page(db=db, flow_page=page)
                 # フローグループとページの対応情報を追加
@@ -483,6 +483,7 @@ async def add_course_file(db: AsyncSession, user_with_grant:UserWithGrant, regis
                 for id_in_yml, flow_id in id_in_yml_flow_id_dict.items():
                     content = re.sub(f"\(\s*flow/{id_in_yml}\s*\)", f"({registered_course.id}/flow/{flow_id})", content)
                 # yml (image/image.jpg) -> markdawn ![~~](url)
+
                 for image_id, image_name in id_in_image_name.items():
                     content = re.sub(f"\(\s*image/{image_name}\s*\)", f"![contentsimage](http://localhost:8000/get_image/{image_id})", content)
                 content_id = await add_content(db, content)  # コンテンツの登録
@@ -498,6 +499,7 @@ async def add_course_file(db: AsyncSession, user_with_grant:UserWithGrant, regis
                         await add_block_rules(db=db, block_id=block_id,rules=block["rules"])
                     else:
                         await add_block_rules(db=db, block_id=block_id)
+
 
     await db.commit()
     return {"success":True,"error_msg":"","registered_course":registered_course}
