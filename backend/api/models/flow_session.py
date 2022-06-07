@@ -28,6 +28,7 @@ class FlowSessionFlowPage(Base):
     order = Column(Integer, nullable=False, comment="フロー内での表示順序. 同じフロー内で一意.")
     submitted = Column(Boolean, default=False, comment="問題を解答したか否か.")
     is_correct = Column(Boolean, default=False, comment = "ユーザの回答が正解か否か.")
+    difficulty = Column(Integer, default=0, comment="問題の難易度")
 # フローセッションと各ページの解答情報
 class FlowSessionBlankAnswer(Base):
     __tablename__ = "flow_session_blank_answer"
