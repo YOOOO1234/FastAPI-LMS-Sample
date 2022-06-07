@@ -4,6 +4,7 @@
         <v-container class="mt-8">
           <v-row justify="end">
             <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
+            <v-btn text color="blue" href="https://github.com/YOOOO1234/FastAPI-LMS-Sample/wiki" target="_blank">ヘルプ</v-btn>
           </v-row>
           <h2>新規コースの登録</h2>
           <div :class="`rounded-lg`" class="pa-6 mt-6 red lighten-5 text-no-wrap" v-if="error_msgs.length>0">

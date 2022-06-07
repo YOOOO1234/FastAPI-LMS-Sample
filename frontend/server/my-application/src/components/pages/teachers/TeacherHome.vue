@@ -13,6 +13,7 @@
               </v-row>
               <v-row justify="end">
                 <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
+                <v-btn text color="blue" href="https://github.com/YOOOO1234/FastAPI-LMS-Sample/wiki" target="_blank">ヘルプ</v-btn>
               </v-row>
             </v-container>
           </v-responsive>
