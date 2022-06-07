@@ -182,7 +182,10 @@ async def update_to_finish_flow_session(db: AsyncSession, flow_session_id: int):
     for i in range(len(is_correct_dict)):
         if is_correct_dict[i]['is_correct'] == True:
             cnt += 1
-    grade = (cnt/len(is_correct_dict))*100 
+    if len(is_correct_dict) != 0:
+        grade = (cnt/len(is_correct_dict))*100 
+    else:
+        grade = 0.0
     print(grade)
     response = {"finish_success": True, "finish_date_time": finish_date_time, "flow_session_grade": grade}
     print(response)
