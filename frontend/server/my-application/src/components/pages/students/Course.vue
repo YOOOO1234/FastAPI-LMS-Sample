@@ -2,9 +2,10 @@
   <v-container>
     <v-responsive :max-width="1200" class="mx-auto">
       <v-container>
-        <v-banner height="100" :class="['text-h5']">{{course.course_name}}
+        <v-banner height="100" margin-top="10px" :class="['text-h5']"><v-subheader :class="['text-h5']">{{course.course_name}}</v-subheader>
           <v-row justify="end">
             <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
+            <v-btn text color="blue" href="https://github.com/YOOOO1234/FastAPI-LMS-Sample/wiki" target="_blank">ヘルプ</v-btn>
           </v-row>
         </v-banner>
         <v-container>
