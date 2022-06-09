@@ -5,6 +5,7 @@
         <v-banner height="100" margin-top="10px" :class="['text-h5']"><v-subheader :class="['text-h5']">{{course.course_name}}</v-subheader>
           <v-row justify="end">
             <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
+            <v-btn text color="blue" @click="go_select_course()" value="POST">コース選択画面</v-btn>
             <v-btn text color="blue" href="https://github.com/YOOOO1234/FastAPI-LMS-Sample/wiki" target="_blank">ヘルプ</v-btn>
           </v-row>
         </v-banner>
@@ -97,6 +98,9 @@ export default {
             }
           }
         )
+      },
+      go_select_course: function(){
+        this.$router.push({name:'StudentHome'})
       },
       go_login_page: function(){
         this.$router.push({name:'Login'})

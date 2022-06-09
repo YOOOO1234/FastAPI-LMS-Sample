@@ -13,6 +13,7 @@
               </v-row>
               <v-row justify="end">
                 <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
+                <v-btn text color="blue" @click="go_select_course()" value="POST">コース選択画面</v-btn>
                 <v-btn text color="blue" href="https://github.com/YOOOO1234/FastAPI-LMS-Sample/wiki" target="_blank">ヘルプ</v-btn>
               </v-row>
             </v-container>
@@ -109,6 +110,9 @@ export default {
     },
     go_login_page: function(){
       this.$router.push({name:'Login'})
+    },
+    go_select_course(){
+      this.$router.push({name:'TeacherHome'})
     },
     move_to_course_info(){
       this.$router.push({name:'CourseInfo', params:{"course_id":this.course_id}})
