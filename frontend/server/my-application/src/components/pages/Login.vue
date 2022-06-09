@@ -2,9 +2,18 @@
     <v-container>
         <v-row align="center" justify="space-around" >
             <v-text-field :rules="email_rules" label="email" v-model="email"></v-text-field>
-        </v-row>
+        </v-row>    
         <v-row align="center" justify="space-around" >
-            <v-text-field :rules="password_rules" label="password" v-model="password"></v-text-field>
+            <v-text-field 
+            :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="password_rules" 
+            :type="show3 ? 'text' : 'password'"
+            label="password" 
+            class="input-group--focused"
+            @click:append="show3 = !show3"
+            v-model="password"
+
+            ></v-text-field>
         </v-row>
         <v-row align="center" justify="space-around" >
             <v-btn depressed color="primary" @click="login()" value="POST">
@@ -20,6 +29,7 @@ export default {
   
   name: "Login",
   data: () => ({
+      show3: false,
       email: "neo@neo.com",
       password: "neoneo",
       email_rules: [
