@@ -8,6 +8,10 @@
             :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
             :rules="password_rules" 
             :type="show3 ? 'text' : 'password'"
+            
+
+
+            
             label="password" 
             class="input-group--focused"
             @click:append="show3 = !show3"
