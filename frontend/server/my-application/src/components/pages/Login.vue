@@ -5,16 +5,13 @@
         </v-row>    
         <v-row align="center" justify="space-around" >
             <v-text-field 
-            :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+            :append-icon="pswd ? 'mdi-eye' : 'mdi-eye-off'"
             :rules="password_rules" 
             :type="show3 ? 'text' : 'password'"
-            
-
-
-            
+            :type="pswd ? 'text' : 'password'"
             label="password" 
             class="input-group--focused"
-            @click:append="show3 = !show3"
+            @click:append="pswd = !pswd"
             v-model="password"
 
             ></v-text-field>
@@ -33,7 +30,7 @@ export default {
   
   name: "Login",
   data: () => ({
-      show3: false,
+      pswd: false,
       email: "neo@neo.com",
       password: "neoneo",
       email_rules: [
