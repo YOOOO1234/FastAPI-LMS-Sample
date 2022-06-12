@@ -7,6 +7,7 @@
             <v-text-field 
             :append-icon="pswd ? 'mdi-eye' : 'mdi-eye-off'"
             :rules="password_rules" 
+            :type="show3 ? 'text' : 'password'"
             :type="pswd ? 'text' : 'password'"
             label="password" 
             class="input-group--focused"
