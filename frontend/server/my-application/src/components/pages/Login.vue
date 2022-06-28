@@ -2,18 +2,16 @@
     <v-container>
         <v-row align="center" justify="space-around" >
             <v-text-field :rules="email_rules" label="email" v-model="email"></v-text-field>
-        </v-row>    
+        </v-row>
         <v-row align="center" justify="space-around" >
             <v-text-field 
             :append-icon="pswd ? 'mdi-eye' : 'mdi-eye-off'"
             :rules="password_rules" 
-            :type="show3 ? 'text' : 'password'"
             :type="pswd ? 'text' : 'password'"
             label="password" 
             class="input-group--focused"
             @click:append="pswd = !pswd"
             v-model="password"
-
             ></v-text-field>
         </v-row>
         <v-row align="center" justify="space-around" >

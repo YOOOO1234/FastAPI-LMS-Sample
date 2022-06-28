@@ -16,8 +16,6 @@
               </v-row>
               <v-row justify="end">
                 <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
-                <v-btn text color="blue" @click="go_select_course()" value="POST">コース選択画面</v-btn>
-                <v-btn text color="blue" href="https://github.com/YOOOO1234/FastAPI-LMS-Sample/wiki" target="_blank">ヘルプ</v-btn>
               </v-row>
             </v-container>
           </v-col>
@@ -35,7 +33,7 @@
           <v-divider class="red"></v-divider>
         </v-col >  
         <v-col cols="2">
-          <v-btn depressed block color="transparent"  class="mb-2">
+          <v-btn @click="move_to_course_preview()" depressed block color="transparent"  class="mb-2">
             プレビュー
           </v-btn>
         </v-col >  
@@ -115,34 +113,28 @@ export default {
   }),
   methods:{
     logout: function(){
-      let self = this
-      axios.get("http://localhost:8000/home_profile", {withCredentials: true})
-      .then(function(response){
-        if(response.data.is_active){
-          self.go_login_page()
-        }
-      }).catch(
-        function(error){
-          console.log(error)
-          if(error.response.status == 401){
-            self.$router.push({name:'Login'})
-          }else{
-            console.log(error.response)
-          }
-        }
-      )
+      try{
+        const res = axios.post("http://localhost:8000/logout",{},{withCredentials: true})
+        console.log(res.data)
+        this.moveToLogin()
+      }catch(error){
+        const {status,statusText} = error.response;
+        if(status == 401)
+          this.moveToLogin()
+        console.log(status,statusText)
+      }
     },
-    go_login_page: function(){
+    moveToLogin: function(){
       this.$router.push({name:'Login'})
-    },
-    go_select_course(){
-      this.$router.push({name:'TeacherHome'})
     },
     move_to_course_info(){
       this.$router.push({name:'CourseInfo', params:{"course_id":this.course_id}})
     },
     move_to_course_taking(){
       this.$router.push({name:'CourseTaking',params:{"course_id":this.course_id}})
+    },
+    move_to_course_preview(){
+      this.$router.push({name:'CoursePreview',params:{"course_id":this.course_id}})
     },
     move_to_course_edit(){
       this.$router.push({name:'CourseEdit',params:{"course_id":this.course_id}})
