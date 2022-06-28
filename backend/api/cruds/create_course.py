@@ -214,12 +214,12 @@ class YamlFormatter():
         return {"success":False, "error_msg":error_msg}
 
 async def add_course(db: AsyncSession, register_course_request:course_schema.RegisterCourseRequest, user_with_grant: UserWithGrant):
-    new_course = course_schema.CourseCreate(course_name=register_course_request.course_name,course_year=register_course_request.course_year,course_term=register_course_request.course_term,subject_name=register_course_request.subject_name,course_week=register_course_request.course_week,start_date_time=register_course_request.start_date_time,end_date_time=register_course_request.end_date_time, created_by=user_with_grant.id)
+    new_course = course_schema.CourseCreate(course_name=register_course_request.course_name,start_date_time=register_course_request.start_date_time,end_date_time=register_course_request.end_date_time, created_by=user_with_grant.id)
     row = course_model.Course(**new_course.dict())
     db.add(row)
     await db.flush()
     await db.refresh(row)
-    return course_schema.RegisteredCourse(id=row.id, course_name=register_course_request.course_name,course_year=register_course_request.course_year,course_term=register_course_request.course_term,subject_name=register_course_request.subject_name,course_week=register_course_request.course_week,start_date_time=row.start_date_time, end_date_time=row.end_date_time, created= row.created)
+    return course_schema.RegisteredCourse(id=row.id, course_name=register_course_request.course_name,start_date_time=row.start_date_time, end_date_time=row.end_date_time, created= row.created)
 
 async def add_course_grant(db: AsyncSession, registered_course:course_schema.RegisteredCourse, user_with_grant:UserWithGrant):
     new_course_grant = course_schema.CourseGrantCreate(user_id=user_with_grant.id,course_id=registered_course.id,start_date_time=datetime.datetime.now(),end_date_time=datetime.datetime.now()+datetime.timedelta(days=365),read_answer=True,update_answer=True,delete_answer=True)
@@ -265,6 +265,13 @@ async def add_image(db: AsyncSession, image_name: str, image_data: bytes):
     await db.flush()
     await db.refresh(row)
     return row.id
+
+async def add_course_info_syllabus(db: AsyncSession, course_id: int, course_info_dict: dict):
+    new_course_info = course_schema.CourseInfoSyllabusCreate(course_id=course_id, subject_class=course_info_dict["subject_class"], subject_name=course_info_dict["subject_name"], subject_credit=course_info_dict["subject_credit"], subject_code=course_info_dict["subject_code"], subject_period=course_info_dict["subject_period"])
+    row = course_model.CourseInfoSyllabus(**new_course_info.dict())
+    db.add(row)
+    await db.flush()
+    await db.refresh(row)
 
 async def add_flow(db: AsyncSession,course_id,flow_dict):
     # コンテンツの登録
@@ -478,6 +485,9 @@ async def add_course_file(db: AsyncSession, user_with_grant:UserWithGrant, regis
     # コンテンツの登録
     for course_list in course_dict.values():
         for course_list_dict in course_list:
+            if "course_info" in course_list_dict.keys():
+                for course_info_dict in course_list_dict["course_info"]:
+                    await add_course_info_syllabus(db=db, course_id=registered_course.id, course_info_dict=course_info_dict)
             if "content" in course_list_dict.keys():
                 content = course_list_dict["content"]
                 for id_in_yml, flow_id in id_in_yml_flow_id_dict.items():

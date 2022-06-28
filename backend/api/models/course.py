@@ -13,10 +13,6 @@ class Course(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     course_name = Column(String(128), nullable=False, comment="このコースの名称.")
-    course_year = Column(String(10), nullable=False, comment="このコースの開講年度.")
-    course_term = Column(String(10), nullable=False, comment="このコースの開講学期.")
-    subject_name = Column(String(128), nullable=False, comment="このコースの科目名")
-    course_week = Column(String(10), nullable=False, comment="このコースの開講週")
     start_date_time = Column(DATETIME, nullable=False, comment="閲覧可能になる日時.")
     end_date_time = Column(DATETIME, nullable=False, comment="閲覧が終了する日時")
     created = Column(DATETIME,default=datetime.datetime.now(), nullable=False)
@@ -43,3 +39,14 @@ class TakingCourse(Base):
 
     user = relationship("User")
     course = relationship("Course")
+
+# コースのシラバス情報
+class CourseInfoSyllabus(Base):
+    __tablename__ = "course_info_syllabus"
+
+    course_id = Column(Integer, primary_key=True, index=True)
+    subject_class = Column(String(128), nullable=False, comment="授業科目区分.")
+    subject_name = Column(String(128), nullable=False, comment="科目名.")
+    subject_credit = Column(Integer, nullable=False, comment="単位")
+    subject_code = Column(String(128), nullable=False, comment="科目コード.")
+    subject_period = Column(String(128), nullable=False, comment="開講時期.")

@@ -4,8 +4,6 @@
         <v-container class="mt-8">
           <v-row justify="end">
             <v-btn text color="red" @click="logout()" value="POST">ログアウト</v-btn>
-            <v-btn text color="blue" @click="go_select_course()" value="POST">コース選択画面</v-btn>
-            <v-btn text color="blue" href="https://github.com/YOOOO1234/FastAPI-LMS-Sample/wiki" target="_blank">ヘルプ</v-btn>
           </v-row>
           <h2>新規コースの登録</h2>
           <div :class="`rounded-lg`" class="pa-6 mt-6 red lighten-5 text-no-wrap" v-if="error_msgs.length>0">
@@ -21,18 +19,6 @@
               <v-row align="center" justify="space-around" >
                 <v-text-field :rules="titleRules" label="コース名" v-model="courseName" background-color="white" filled ></v-text-field>
               </v-row>
-              <v-row align="center" justify="space-around" >
-                <v-text-field :rules="yearRules" label="年度" v-model="courseYear" background-color="white" filled ></v-text-field>
-              </v-row>
-              <v-row align="center" justify="space-around" >
-                <v-text-field :rules="termRules" label="学期" v-model="courseTerm" background-color="white" filled ></v-text-field>
-              </v-row>
-              <v-row align="center" justify="space-around" >
-                <v-text-field :rules="subjectsRules" label="科目名" v-model="subjectName" background-color="white" filled ></v-text-field>
-              </v-row>
-              <v-row align="center" justify="space-around" >
-                <v-text-field :rules="weekRules" label="週" v-model="courseWeek" background-color="white" filled ></v-text-field>
-              </v-row>                            
               <v-row align="center" justify="space-around" >
                   <v-text-field :rules="startDateTimeRules" label="開始日時 ex. 2022-02-04 13:30:00" v-model="startDateTime" background-color="white" filled error-count="10"></v-text-field>
                   <!-- <v-text-field :rules="startTimeRules" label="start time   ex. 23:30" v-model="startTime" background-color="white" filled></v-text-field> -->
@@ -83,18 +69,6 @@ export default {
     isCreater: false,
     titleRules:[
       v => !!v || 'コース名は必須です.',
-    ],
-    yearRules:[
-      v => !!v || '年度は必須です.',
-    ],
-    termRules:[
-      v => !!v || '学期は必須です.',
-    ],
-    subjectsRules:[
-      v => !!v || '科目名は必須です.',
-    ],
-    weekRules:[
-      v => !!v || '週は必須です.',
     ],
     startDateTimeRules:[
       v => !!v || '開始日時は必須です.',
@@ -291,10 +265,6 @@ export default {
     files: [],
     error_msgs: [],
     courseName: "",
-    courseYear: "",
-    courseTerm: "",
-    subjectName: "",
-    courseWeek: "",
     startDateTime: "",
     endDateTime: "",
   }),
@@ -314,16 +284,13 @@ export default {
     moveToLogin: function(){
       this.$router.push({name:'Login'})
     },
-    go_select_course(){
-      this.$router.push({name:'TeacherHome'})
-    },
     move_to_course_info(course_id){
       this.$router.push({name:'CourseInfo', params: {course_id: course_id}})
     },
     register_course(){
       const is_validation_success = this.validate_form()
       if(is_validation_success){
-          const params = {"course_name":this.courseName,"course_year":this.courseYear,"course_term":this.courseTerm,"subject_name":this.subjectName,"course_week":this.courseWeek ,"start_date_time": "2022-2-10T00:00:00","end_date_time":"2022-05-10T23:59:59","course_files": this.files}
+          const params = {"course_name":this.courseName,"start_date_time": "2022-2-10T00:00:00","end_date_time":"2022-05-10T23:59:59","course_files": this.files}
           console.log(JSON.stringify(params));
           const config = {
             headers: {
