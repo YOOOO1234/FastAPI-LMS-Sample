@@ -15,9 +15,14 @@
             ></v-text-field>
         </v-row>
         <v-row align="center" justify="space-around" >
+          <div v-if="fale_cnt<5">
             <v-btn depressed color="primary" @click="login()" value="POST">
                 ログイン
             </v-btn>
+          </div>
+          <div :class="`rounded-lg`" class="pa-6 mt-6 red lighten-5 text-no-wrap"  v-else>
+            ５回入力に失敗したので時間を空けてログインしてください。
+          </div>
         </v-row>
     </v-container>
 </template>
@@ -31,11 +36,12 @@ export default {
       pswd: false,
       email: "neo@neo.com",
       password: "neoneo",
+      fale_cnt: 0,
       email_rules: [
-        value => !!value || 'Required.',
+        value => !!value || 'メールアドレスを入力してください.',
       ],
       password_rules: [
-        value => !!value || 'Required.',
+        value => !!value || 'パスワードを入力してください',
       ]
     }),
   methods:{
@@ -71,6 +77,7 @@ export default {
           )}
         ).catch(
           function(error){
+            self.fale_cnt +=1
             console.log(error)
           }
         )
