@@ -17,7 +17,7 @@
         <v-row align="center" justify="space-around" >
           <div v-if="fale_cnt<5">
             <v-btn depressed color="primary" @click="login()" value="POST">
-                ログイン
+              ログイン
             </v-btn>
           </div>
           <div :class="`rounded-lg`" class="pa-6 mt-6 red lighten-5 text-no-wrap"  v-else>
