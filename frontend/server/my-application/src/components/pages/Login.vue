@@ -78,6 +78,7 @@ export default {
         ).catch(
           function(error){
             self.fale_cnt +=1
+            alert('ログインに失敗しました。正しいメールアドレス・パスワードを入力してください');
             console.log(error)
           }
         )
